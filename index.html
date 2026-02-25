@@ -194,6 +194,143 @@
     justify-content:space-between;
   }
 
+  /* ===== BLACK FOOTER ===== */
+
+footer{
+  background:#000000;
+  color:#ffffff;
+  margin-top:120px;
+  padding:80px 40px 40px 40px;
+}
+
+.footer-container{
+  max-width:1800px;
+  margin:0 auto;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:60px;
+  margin-bottom:60px;
+}
+
+.footer-col h4{
+  font-size:15px;
+  font-weight:600;
+  margin-bottom:20px;
+  color:#ffffff;
+}
+
+.footer-col a{
+  display:block;
+  font-size:14px;
+  color:#9ca3af;
+  text-decoration:none;
+  margin-bottom:12px;
+  transition:color .2s ease;
+}
+
+.footer-col a:hover{
+  color:#ffffff;
+}
+
+.footer-bottom{
+  border-top:1px solid #222;
+  padding-top:24px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:20px;
+  font-size:13px;
+  color:#9ca3af;
+}
+
+.footer-legal a{
+  margin-right:20px;
+  color:#9ca3af;
+  text-decoration:none;
+}
+
+.footer-legal a:hover{
+  color:#ffffff;
+}
+
+/* CTA BUTTONS */
+
+.cta-buttons{
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  margin-top:28px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:14px 28px;
+  font-size:16px;
+  font-weight:500;
+  border-radius:8px;
+  text-decoration:none;
+  transition:all .15s ease;
+  display:inline-block;
+  min-width:180px;
+  text-align:center;
+}
+
+/* Primary button */
+.btn-primary{
+  background:#000000;
+  color:#ffffff;
+  border:1px solid #000000;
+}
+
+.btn-primary:hover{
+  background:#111111;
+}
+
+/* Secondary button */
+.btn-secondary{
+  background:#ffffff;
+  color:#000000;
+  border:1px solid #e5e7eb;
+}
+
+.btn-secondary:hover{
+  background:#f3f4f6;
+}
+
+/* Mobile stacking */
+@media (max-width:600px){
+  .cta-buttons{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .btn{
+    width:100%;
+    max-width:320px;
+  }
+}
+
+/* Responsive */
+@media (max-width:1100px){
+  .footer-grid{
+    grid-template-columns: repeat(2, 1fr);
+    gap:40px;
+  }
+}
+
+@media (max-width:600px){
+  .footer-grid{
+    grid-template-columns: 1fr;
+  }
+  .footer-bottom{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+}
+
   /* Responsive */
   @media (max-width:1200px){
     .grid{ grid-template-columns: repeat(2,1fr); }
@@ -216,27 +353,32 @@
       <div class="logo">LOGO</div>
       <div class="brand-name">Business Name</div>
     </div>
-    <a class="login" href="/login">Login</a>
+    <a class="login" href="/login">Sign Up</a><a class="login" href="/login">Login</a>
   </div>
 </header>
 
 <main>
 
   <div class="chatgpt-content">
-    <h1>Business Name</h1>
-    <p class="tagline">A short tagline goes here</p>
-    <p class="description">
-      This is a simple, neutral client page. Replace this text with the business description pulled from fibodo.
-      Keep it short—what you offer, who it’s for, and what people can do next.
-    </p>
+  <h1>Business Name</h1>
+  <p class="tagline">A short tagline goes here</p>
+  <p class="description">
+    This is a simple, neutral client page. Replace this text with the business description pulled from fibodo.
+    Keep it short—what you offer, who it’s for, and what people can do next.
+  </p>
+
+  <div class="cta-buttons">
+    <a href="#contact" class="btn btn-primary">Get in touch</a>
+    <a href="#download" class="btn btn-secondary">Download app</a>
   </div>
+</div>
 
   <section class="banner">
     <img src="images/yoga.jpg" alt="Banner image">
   </section>
 
   <section class="feature">
-    <div class="feature-img">IMAGE</div>
+    <div class="feature-img">Headshot</div>
     <div class="feature-text">
       <h2>Section Heading</h2>
       <p>A short paragraph describing this section. Replace with real content from fibodo.</p>
@@ -280,9 +422,57 @@
 </main>
 
 <footer>
-  <div class="footer-inner">
-    <div>Powered by fibodo</div>
-    <div>© 2026 Business Name</div>
+  <div class="footer-container">
+
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">About Us</a>
+        <a href="#">Careers</a>
+        <a href="#">Press</a>
+        <a href="#">Blog</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <a href="#">Timetable</a>
+        <a href="#">On Demand</a>
+        <a href="#">Live Streaming</a>
+        <a href="#">Memberships</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="#">Help Centre</a>
+        <a href="#">Contact</a>
+        <a href="#">System Status</a>
+        <a href="#">Accessibility</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Twitter / X</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div>
+        © 2026 Business Name. All rights reserved.
+      </div>
+
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookies</a>
+        <a href="#">GDPR</a>
+      </div>
+    </div>
+
   </div>
 </footer>
 
