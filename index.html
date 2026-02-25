@@ -1,378 +1,230 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>fibodo — Client Portal</title>
-  <meta name="description" content="Client portal" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Client Portal</title>
 
-  <style>
-    :root{
-      --bg:#0b0b0c;
-      --panel:#111113;
-      --panel2:#0f0f10;
-      --text:#f3f3f3;
-      --muted:#b7b7b7;
-      --border:rgba(255,255,255,.10);
-      --border2:rgba(255,255,255,.14);
-      --shadow: 0 14px 40px rgba(0,0,0,.55);
-      --radius:14px;
-      --max:1100px;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-    }
+<style>
+  :root{
+    --bg:#ffffff;
+    --text:#0f172a;
+    --muted:#6b7280;
+    --border:#e5e7eb;
+    --hover:#f3f4f6;
+    --max: 760px;
+  }
 
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:var(--sans);
-      background:
-        radial-gradient(900px 420px at 20% 0%, rgba(255,255,255,.06), transparent 60%),
-        radial-gradient(900px 420px at 80% 0%, rgba(255,255,255,.05), transparent 60%),
-        var(--bg);
-      color:var(--text);
-    }
+  *{box-sizing:border-box}
 
-    a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:20px}
+  body{
+    margin:0;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+                 "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    font-size:16px;
+    line-height:1.5;
+  }
 
-    header{
-      position:sticky; top:0;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, rgba(11,11,12,.92), rgba(11,11,12,.72));
-      border-bottom:1px solid var(--border);
-      z-index:10;
-    }
-    .header-inner{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:16px;
-      padding:14px 20px;
-      max-width:var(--max);
-      margin:0 auto;
-    }
+  header{
+    border-bottom:1px solid var(--border);
+    padding:14px 20px;
+  }
 
-    .brand{
-      display:flex; align-items:center; gap:12px; min-width:220px;
-    }
-    .logo{
-      width:38px; height:38px;
-      border:1px dashed var(--border2);
-      border-radius:10px;
-      display:grid; place-items:center;
-      color:var(--muted);
-      font-size:11px;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      background:rgba(255,255,255,.03);
-    }
-    .brand-text{display:flex; flex-direction:column; line-height:1.1}
-    .brand-text strong{font-weight:650; font-size:14px}
-    .brand-text span{font-size:12px; color:var(--muted); font-family:var(--mono)}
+  .header-inner{
+    max-width:var(--max);
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
 
-    .login-btn{
-      display:inline-flex; align-items:center; gap:10px;
-      border:1px solid var(--border2);
-      background:rgba(255,255,255,.04);
-      color:var(--text);
-      padding:10px 12px;
-      border-radius:12px;
-      font-size:13px;
-      transition:transform .06s ease, background .2s ease, border-color .2s ease;
-      cursor:pointer;
-      user-select:none;
-    }
-    .login-btn:hover{background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.18)}
-    .login-btn:active{transform:translateY(1px)}
-    .dot{
-      width:8px; height:8px; border-radius:50%;
-      background:rgba(255,255,255,.28);
-      box-shadow:0 0 0 3px rgba(255,255,255,.06);
-    }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
 
-    main{padding:26px 20px 34px}
-    .hero{
-      display:flex;
-      gap:22px;
-      align-items:flex-start;
-      padding:18px;
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      background:linear-gradient(to bottom, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      box-shadow:var(--shadow);
-    }
-    .hero-left{flex:1}
-    .biz-name{
-      font-size:24px;
-      font-weight:700;
-      letter-spacing:-0.02em;
-      margin:0 0 6px;
-    }
-    .biz-tagline{
-      margin:0 0 14px;
-      color:var(--muted);
-      font-size:14px;
-      font-family:var(--mono);
-    }
-    .biz-desc{
-      margin:0 0 16px;
-      color:rgba(255,255,255,.86);
-      line-height:1.55;
-      font-size:14px;
-      max-width:72ch;
-    }
+  .logo{
+    width:32px;
+    height:32px;
+    border:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+    color:var(--muted);
+  }
 
-    .meta{
-      display:flex; flex-wrap:wrap; gap:10px;
-      margin-top:10px;
-    }
-    .pill{
-      border:1px solid var(--border);
-      background:rgba(255,255,255,.03);
-      border-radius:999px;
-      padding:8px 10px;
-      font-size:12px;
-      color:rgba(255,255,255,.85);
-      display:flex; gap:8px; align-items:center;
-    }
-    .pill b{font-weight:650; color:var(--muted)}
-    .hero-right{
-      min-width:240px;
-      width:240px;
-      border-left:1px solid var(--border);
-      padding-left:18px;
-    }
-    .qr{
-      border:1px dashed var(--border2);
-      background:rgba(255,255,255,.02);
-      border-radius:12px;
-      height:160px;
-      display:grid;
-      place-items:center;
-      color:var(--muted);
-      font-size:12px;
-      font-family:var(--mono);
-    }
-    .hint{
-      margin:10px 0 0;
-      font-size:12px;
-      color:var(--muted);
-      line-height:1.45;
-    }
+  .brand-name{
+    font-weight:600;
+    font-size:15px;
+  }
 
+  .login{
+    font-size:14px;
+    color:var(--muted);
+    text-decoration:none;
+  }
+
+  .login:hover{
+    text-decoration:underline;
+  }
+
+  main{
+    max-width:var(--max);
+    margin:40px auto;
+    padding:0 20px;
+  }
+
+  h1{
+    font-size:24px;
+    font-weight:600;
+    margin:0 0 8px;
+  }
+
+  .tagline{
+    font-size:14px;
+    color:var(--muted);
+    margin-bottom:20px;
+  }
+
+  .description{
+    font-size:16px;
+    margin-bottom:30px;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:12px;
+  }
+
+  .card{
+    border:1px solid var(--border);
+    padding:18px;
+    border-radius:8px;
+    text-decoration:none;
+    color:var(--text);
+    font-size:15px;
+    transition:background .15s ease;
+  }
+
+  .card:hover{
+    background:var(--hover);
+  }
+
+  .card-title{
+    font-weight:600;
+    margin-bottom:4px;
+  }
+
+  .card-desc{
+    font-size:14px;
+    color:var(--muted);
+  }
+
+  footer{
+    border-top:1px solid var(--border);
+    padding:16px 20px;
+    font-size:13px;
+    color:var(--muted);
+    margin-top:60px;
+  }
+
+  .footer-inner{
+    max-width:var(--max);
+    margin:0 auto;
+  }
+
+  @media (max-width:640px){
     .grid{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap:14px;
-      margin-top:16px;
+      grid-template-columns:1fr;
     }
+  }
 
-    .card{
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      background:linear-gradient(to bottom, rgba(255,255,255,.03), rgba(255,255,255,.015));
-      padding:16px;
-      min-height:120px;
-      transition: transform .08s ease, border-color .2s ease, background .2s ease;
-      cursor:pointer;
-      position:relative;
-      overflow:hidden;
-    }
-    .card:hover{
-      transform:translateY(-1px);
-      border-color:rgba(255,255,255,.18);
-      background:linear-gradient(to bottom, rgba(255,255,255,.05), rgba(255,255,255,.02));
-    }
-    .card:active{transform:translateY(0px)}
-    .card h3{
-      margin:0 0 8px;
-      font-size:14px;
-      font-weight:700;
-      letter-spacing:-0.01em;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-    }
-    .card p{
-      margin:0;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.5;
-      max-width:52ch;
-    }
-    .chev{
-      font-family:var(--mono);
-      color:rgba(255,255,255,.45);
-      font-size:14px;
-    }
-
-    footer{
-      border-top:1px solid var(--border);
-      color:var(--muted);
-      font-size:12px;
-      padding:16px 20px;
-    }
-    .footer-inner{
-      max-width:var(--max);
-      margin:0 auto;
-      display:flex;
-      justify-content:space-between;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-
-    /* Responsive */
-    @media (max-width: 920px){
-      .grid{grid-template-columns: repeat(2, minmax(0, 1fr));}
-      .hero{flex-direction:column}
-      .hero-right{border-left:none; padding-left:0; width:100%; min-width:0}
-      .qr{height:140px}
-    }
-    @media (max-width: 560px){
-      .grid{grid-template-columns: 1fr;}
-      .brand{min-width:0}
-      .brand-text span{display:none}
-      main{padding:18px 16px 26px}
-      .header-inner{padding:12px 16px}
-    }
-  </style>
+</style>
 </head>
-
 <body>
-  <header>
-    <div class="header-inner">
-      <div class="brand" aria-label="Business">
-        <div class="logo" id="logoBox" title="Logo placeholder">LOGO</div>
-        <div class="brand-text">
-          <strong id="bizNameTop">Business Name</strong>
-          <span id="bizSlug">your-subdomain.findbookdo.com</span>
-        </div>
-      </div>
 
-      <a class="login-btn" id="loginBtn" href="/login">
-        <span class="dot" aria-hidden="true"></span>
-        <span>Login</span>
-      </a>
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <div class="logo">LOGO</div>
+      <div class="brand-name" id="bizNameTop">Business Name</div>
     </div>
-  </header>
+    <a class="login" id="loginLink" href="/login">Login</a>
+  </div>
+</header>
 
-  <div class="wrap">
-    <main>
-      <section class="hero" aria-label="Business Overview">
-        <div class="hero-left">
-          <h1 class="biz-name" id="bizName">Business Name</h1>
-          <p class="biz-tagline" id="bizTagline">A short tagline goes here</p>
-          <p class="biz-desc" id="bizDesc">
-            This is a simple, neutral client page. Replace this text with the business description pulled from fibodo.
-            Keep it short—what you offer, who it’s for, and what people can do next.
-          </p>
+<main>
+  <h1 id="bizName">Business Name</h1>
+  <div class="tagline" id="bizTagline">Your short tagline goes here</div>
 
-          <div class="meta">
-            <div class="pill"><b>Location</b> <span id="bizLocation">City, Country</span></div>
-            <div class="pill"><b>Contact</b> <span id="bizContact">hello@business.com</span></div>
-            <div class="pill"><b>Phone</b> <span id="bizPhone">+44 0000 000000</span></div>
-          </div>
-        </div>
-
-        <aside class="hero-right" aria-label="App prompt">
-          <div class="qr" id="qrBox">QR / App badge</div>
-          <p class="hint">
-            Optional: show a QR code for the app download, or a “Download the app” button here.
-          </p>
-        </aside>
-      </section>
-
-      <section class="grid" aria-label="Sections">
-        <a class="card" data-section="about" href="#about">
-          <h3>About <span class="chev">→</span></h3>
-          <p>Who you are, what you offer, and how members get started.</p>
-        </a>
-
-        <a class="card" data-section="timetable" href="#timetable">
-          <h3>Timetable <span class="chev">→</span></h3>
-          <p>Browse upcoming sessions, availability, and bookings.</p>
-        </a>
-
-        <a class="card" data-section="ondemand" href="#ondemand">
-          <h3>On Demand <span class="chev">→</span></h3>
-          <p>Video library: programmes, classes, and replays.</p>
-        </a>
-
-        <a class="card" data-section="livestream" href="#livestream">
-          <h3>Live Streaming <span class="chev">→</span></h3>
-          <p>Join live sessions and interact in real time.</p>
-        </a>
-
-        <a class="card" data-section="vouchers" href="#vouchers">
-          <h3>Vouchers <span class="chev">→</span></h3>
-          <p>Gift sessions, credits, or packages to someone else.</p>
-        </a>
-
-        <a class="card" data-section="memberships" href="#memberships">
-          <h3>Memberships <span class="chev">→</span></h3>
-          <p>Recurring plans, perks, and easy account management.</p>
-        </a>
-      </section>
-    </main>
+  <div class="description" id="bizDescription">
+    This page allows clients to access bookings, memberships, vouchers,
+    on-demand content and live streaming sessions.
   </div>
 
-  <footer>
-    <div class="footer-inner">
-      <div>Powered by fibodo</div>
-      <div id="footerNote">© <span id="year"></span> <span id="bizNameFoot">Business Name</span></div>
-    </div>
-  </footer>
+  <div class="grid">
+    <a href="#" class="card">
+      <div class="card-title">About</div>
+      <div class="card-desc">Learn more about this business.</div>
+    </a>
 
-  <script>
-    // Simple population helper (replace with your server-side rendering or API fetch)
-    const businessData = {
-      name: "Business Name",
-      slug: "your-subdomain.findbookdo.com",
-      tagline: "A short tagline goes here",
-      description: "Replace this with the business description pulled from fibodo. Keep it short and clear.",
-      location: "City, Country",
-      contact: "hello@business.com",
-      phone: "+44 0000 000000",
-      loginUrl: "/login"
-      // logoUrl: "https://..." // optional if you want to swap the placeholder for an image
-    };
+    <a href="#" class="card">
+      <div class="card-title">Timetable</div>
+      <div class="card-desc">View upcoming sessions and availability.</div>
+    </a>
 
-    function populateBusiness(d){
-      document.getElementById("bizNameTop").textContent = d.name || "Business Name";
-      document.getElementById("bizName").textContent = d.name || "Business Name";
-      document.getElementById("bizNameFoot").textContent = d.name || "Business Name";
-      document.getElementById("bizSlug").textContent = d.slug || "";
-      document.getElementById("bizTagline").textContent = d.tagline || "";
-      document.getElementById("bizDesc").textContent = d.description || "";
-      document.getElementById("bizLocation").textContent = d.location || "";
-      document.getElementById("bizContact").textContent = d.contact || "";
-      document.getElementById("bizPhone").textContent = d.phone || "";
-      document.getElementById("loginBtn").setAttribute("href", d.loginUrl || "/login");
+    <a href="#" class="card">
+      <div class="card-title">On Demand</div>
+      <div class="card-desc">Access video classes and programmes.</div>
+    </a>
 
-      // Optional: show logo image if provided
-      if (d.logoUrl){
-        const box = document.getElementById("logoBox");
-        box.style.borderStyle = "solid";
-        box.style.padding = "0";
-        box.textContent = "";
-        box.style.backgroundImage = `url('${d.logoUrl}')`;
-        box.style.backgroundSize = "contain";
-        box.style.backgroundRepeat = "no-repeat";
-        box.style.backgroundPosition = "center";
-      }
-    }
+    <a href="#" class="card">
+      <div class="card-title">Live Streaming</div>
+      <div class="card-desc">Join live sessions in real time.</div>
+    </a>
 
-    document.getElementById("year").textContent = new Date().getFullYear();
-    populateBusiness(businessData);
+    <a href="#" class="card">
+      <div class="card-title">Vouchers</div>
+      <div class="card-desc">Purchase or redeem gift vouchers.</div>
+    </a>
 
-    // Optional: wire the cards to real routes later
-    document.querySelectorAll(".card").forEach(card => {
-      card.addEventListener("click", (e) => {
-        // In production: route to /{slug}/{section} or open a modal, etc.
-        // e.preventDefault();
-        // window.location.href = `/portal/${businessData.slug}/${card.dataset.section}`;
-      });
-    });
-  </script>
+    <a href="#" class="card">
+      <div class="card-title">Memberships</div>
+      <div class="card-desc">Manage subscriptions and plans.</div>
+    </a>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    Powered by fibodo
+  </div>
+</footer>
+
+<script>
+  // Example population object
+  const businessData = {
+    name: "London Yoga Studio",
+    tagline: "Movement, mindfulness and strength",
+    description: "Book classes, manage memberships, access on-demand content and join live sessions — all in one place.",
+    loginUrl: "/login"
+  };
+
+  function populate(data){
+    document.getElementById("bizName").textContent = data.name;
+    document.getElementById("bizNameTop").textContent = data.name;
+    document.getElementById("bizTagline").textContent = data.tagline;
+    document.getElementById("bizDescription").textContent = data.description;
+    document.getElementById("loginLink").href = data.loginUrl;
+  }
+
+  populate(businessData);
+</script>
+
 </body>
 </html>
