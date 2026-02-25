@@ -4,7 +4,6 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>fibodo — Client Page</title>
-<meta name="description" content="fibodo client page" />
 
 <style>
   :root{
@@ -13,7 +12,7 @@
     --muted:#6b7280;
     --border:#e5e7eb;
     --hover:#f3f4f6;
-    --max: 760px;
+    --max: 1800px;
   }
 
   *{ box-sizing:border-box; }
@@ -28,28 +27,28 @@
     line-height:1.5;
   }
 
-  /* Header (simple, ChatGPT-like) */
   header{
     border-bottom:1px solid var(--border);
-    padding:14px 20px;
+    padding:14px 40px;
   }
+
   .header-inner{
     max-width:var(--max);
     margin:0 auto;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:12px;
   }
+
   .brand{
     display:flex;
     align-items:center;
     gap:12px;
-    min-width:0;
   }
+
   .logo{
-    width:32px;
-    height:32px;
+    width:36px;
+    height:36px;
     border:1px solid var(--border);
     border-radius:6px;
     display:flex;
@@ -57,169 +56,155 @@
     justify-content:center;
     font-size:11px;
     color:var(--muted);
-    flex:0 0 auto;
-    overflow:hidden;
     background:#fff;
   }
+
   .brand-name{
     font-weight:600;
-    font-size:15px;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
+    font-size:16px;
   }
+
   .login{
-    font-size:14px;
+    font-size:15px;
     color:var(--muted);
     text-decoration:none;
-    white-space:nowrap;
   }
+
   .login:hover{ text-decoration:underline; }
 
-  /* Main container */
   main{
     max-width:var(--max);
-    margin:40px auto;
-    padding:0 20px;
+    margin:60px auto;
+    padding:0 40px;
   }
 
-  /* ChatGPT-like typography block */
   .chatgpt-content{
-    max-width:720px;
-    margin:0 auto;
+    max-width:1000px;
+    margin:0 auto 60px auto;
     text-align:center;
   }
+
   .chatgpt-content h1{
     font-size:68px;
     font-weight:600;
-    letter-spacing:-0.01em;
-    margin:0 0 8px 0;
-    color:var(--text);
-    margin: auto;
-  }
-  .chatgpt-content .tagline{
-    font-size:20px;
-    color:var(--muted);
-    margin:0 0 16px 0;
-    line-height:1.5;
-    margin: auto;
-  }
-  .chatgpt-content .description{
-    font-size:16px;
-    color:var(--text);
-    line-height:1.65;
-    margin:0 0 28px 0;
-    margin: auto;
+    letter-spacing:-0.02em;
+    margin:0 0 12px 0;
   }
 
-  /* Banner */
-  .banner{
-    margin:32px 0;
-    border-radius:14px;
-    overflow:hidden;
-    line-height:0;
+  .chatgpt-content .tagline{
+    font-size:22px;
+    color:var(--muted);
+    margin-bottom:20px;
   }
+
+  .chatgpt-content .description{
+    font-size:18px;
+    line-height:1.7;
+    max-width:900px;
+    margin:0 auto;
+  }
+
+  .banner{
+    margin:60px 0;
+    border-radius:18px;
+    overflow:hidden;
+  }
+
   .banner img{
     width:100%;
-    height:auto;
     display:block;
-    border-radius:14px;
   }
 
-  /* Feature section (image left, text right) */
   .feature{
     display:flex;
     align-items:center;
-    gap:32px;
-    margin:40px 0;
+    gap:60px;
+    margin:80px 0;
   }
+
   .feature-img{
-    flex:0 0 280px;
-    height:200px;
+    flex:0 0 400px;
+    height:280px;
     border:1px solid var(--border);
-    border-radius:10px;
+    border-radius:14px;
     background:#f9fafb;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:13px;
     color:var(--muted);
-    overflow:hidden;
-  }
-  .feature-img img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    border-radius:10px;
-  }
-  .feature-text{
-    flex:1;
-    min-width:0;
-  }
-  .feature-text h2{
-    font-size:24px;
-    font-weight:600;
-    margin:0 0 8px 0;
-  }
-  .feature-text p{
-    font-size:15px;
-    color:var(--muted);
-    line-height:1.65;
-    margin:0;
   }
 
-  /* Cards */
+  .feature-text h2{
+    font-size:32px;
+    margin-bottom:14px;
+  }
+
+  .feature-text p{
+    font-size:18px;
+    color:var(--muted);
+  }
+
+  /* 3 COLUMN GRID */
   .grid{
     display:grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap:12px;
-    margin-top:8px;
+    grid-template-columns: repeat(3, 1fr);
+    gap:32px;
+    margin-top:60px;
   }
+
   .card{
     border:1px solid var(--border);
-    border-radius:10px;
-    padding:18px;
+    border-radius:16px;
+    padding:40px;
     text-decoration:none;
     color:var(--text);
-    transition: background .15s ease;
-    display:block;
-    min-height:108px;
+    transition: background .15s ease, transform .15s ease;
+    min-height:200px;
   }
-  .card:hover{ background:var(--hover); }
+
+  .card:hover{
+    background:var(--hover);
+    transform:translateY(-2px);
+  }
+
   .card-title{
     font-weight:600;
-    font-size:15px;
-    margin:0 0 6px 0;
+    font-size:22px;
+    margin-bottom:12px;
   }
+
   .card-desc{
-    font-size:14px;
+    font-size:17px;
     color:var(--muted);
-    margin:0;
-    line-height:1.55;
+    line-height:1.6;
   }
 
   footer{
     border-top:1px solid var(--border);
-    padding:16px 20px;
-    font-size:13px;
+    padding:24px 40px;
+    font-size:14px;
     color:var(--muted);
-    margin-top:60px;
+    margin-top:100px;
   }
+
   .footer-inner{
     max-width:var(--max);
     margin:0 auto;
     display:flex;
     justify-content:space-between;
-    gap:12px;
-    flex-wrap:wrap;
   }
 
-  @media (max-width:640px){
-    main{ margin:28px auto; }
-    .feature{ flex-direction:column; gap:20px; }
-    .feature-img{ flex:none; width:100%; height:180px; }
-    .grid{ grid-template-columns:1fr; }
+  /* Responsive */
+  @media (max-width:1200px){
+    .grid{ grid-template-columns: repeat(2,1fr); }
   }
+
+  @media (max-width:768px){
+    main{ padding:0 20px; }
+    .grid{ grid-template-columns:1fr; }
+    .feature{ flex-direction:column; }
+  }
+
 </style>
 </head>
 
@@ -228,127 +213,78 @@
 <header>
   <div class="header-inner">
     <div class="brand">
-      <div class="logo" id="logoBox" title="Logo placeholder">LOGO</div>
-      <div class="brand-name" id="bizNameTop">Business Name</div>
+      <div class="logo">LOGO</div>
+      <div class="brand-name">Business Name</div>
     </div>
-    <a class="login" id="loginLink" href="/login">Login</a>
+    <a class="login" href="/login">Login</a>
   </div>
 </header>
 
 <main>
+
   <div class="chatgpt-content">
-    <h1 id="bizName">Business Name</h1>
-    <p class="tagline" id="bizTagline">A short tagline goes here</p>
-    <p class="description" id="bizDesc">
+    <h1>Business Name</h1>
+    <p class="tagline">A short tagline goes here</p>
+    <p class="description">
       This is a simple, neutral client page. Replace this text with the business description pulled from fibodo.
       Keep it short—what you offer, who it’s for, and what people can do next.
     </p>
   </div>
 
   <section class="banner">
-    <img src="images/yoga.jpg" alt="Banner image" />
+    <img src="images/yoga.jpg" alt="Banner image">
   </section>
 
   <section class="feature">
-    <div class="feature-img" id="featureImg">IMAGE</div>
+    <div class="feature-img">IMAGE</div>
     <div class="feature-text">
       <h2>Section Heading</h2>
       <p>A short paragraph describing this section. Replace with real content from fibodo.</p>
     </div>
   </section>
 
-  <section class="grid" aria-label="Sections">
-    <a class="card" data-section="about" href="#about">
+  <section class="grid">
+
+    <a class="card">
       <div class="card-title">About</div>
-      <p class="card-desc">Who you are, what you offer, and how clients get started.</p>
+      <div class="card-desc">Who you are and how clients get started.</div>
     </a>
 
-    <a class="card" data-section="timetable" href="#timetable">
+    <a class="card">
       <div class="card-title">Timetable</div>
-      <p class="card-desc">View upcoming sessions and availability.</p>
+      <div class="card-desc">View upcoming sessions and availability.</div>
     </a>
 
-    <a class="card" data-section="ondemand" href="#ondemand">
+    <a class="card">
       <div class="card-title">On Demand</div>
-      <p class="card-desc">Access video classes and programmes.</p>
+      <div class="card-desc">Access video classes and programmes.</div>
     </a>
 
-    <a class="card" data-section="livestream" href="#livestream">
+    <a class="card">
       <div class="card-title">Live Streaming</div>
-      <p class="card-desc">Join live sessions in real time.</p>
+      <div class="card-desc">Join live sessions in real time.</div>
     </a>
 
-    <a class="card" data-section="vouchers" href="#vouchers">
+    <a class="card">
       <div class="card-title">Vouchers</div>
-      <p class="card-desc">Purchase or redeem gift vouchers.</p>
+      <div class="card-desc">Purchase or redeem gift vouchers.</div>
     </a>
 
-    <a class="card" data-section="memberships" href="#memberships">
+    <a class="card">
       <div class="card-title">Memberships</div>
-      <p class="card-desc">Manage subscriptions and plans.</p>
+      <div class="card-desc">Manage subscriptions and plans.</div>
     </a>
+
   </section>
+
 </main>
 
 <footer>
   <div class="footer-inner">
     <div>Powered by fibodo</div>
-    <div>© <span id="year"></span> <span id="bizNameFoot">Business Name</span></div>
+    <div>© 2026 Business Name</div>
   </div>
 </footer>
 
-<script>
-  // Example population object (replace with your backend/API)
-  const businessData = {
-    name: "Business Name",
-    tagline: "A short tagline goes here",
-    description: "This is a simple, neutral client page. Replace this text with the business description pulled from fibodo. Keep it short—what you offer, who it’s for, and what people can do next.",
-    loginUrl: "/login",
-    // logoUrl: "https://example.com/logo.png" // optional
-    routes: {
-      about: "#about",
-      timetable: "#timetable",
-      ondemand: "#ondemand",
-      livestream: "#livestream",
-      vouchers: "#vouchers",
-      memberships: "#memberships"
-    }
-  };
-
-  function populate(data){
-    const name = data.name || "Business Name";
-    document.getElementById("bizNameTop").textContent = name;
-    document.getElementById("bizName").textContent = name;
-    document.getElementById("bizNameFoot").textContent = name;
-
-    document.getElementById("bizTagline").textContent = data.tagline || "";
-    document.getElementById("bizDesc").textContent = data.description || "";
-
-    document.getElementById("loginLink").href = data.loginUrl || "/login";
-
-    // Optional: swap logo placeholder for an image
-    if (data.logoUrl){
-      const box = document.getElementById("logoBox");
-      box.textContent = "";
-      box.style.borderStyle = "solid";
-      box.style.backgroundImage = `url('${data.logoUrl}')`;
-      box.style.backgroundSize = "contain";
-      box.style.backgroundRepeat = "no-repeat";
-      box.style.backgroundPosition = "center";
-    }
-
-    // Wire section links
-    document.querySelectorAll(".card").forEach(card => {
-      const key = card.getAttribute("data-section");
-      const href = (data.routes && data.routes[key]) ? data.routes[key] : "#";
-      card.setAttribute("href", href);
-    });
-  }
-
-  document.getElementById("year").textContent = new Date().getFullYear();
-  populate(businessData);
-</script>
-
 </body>
 </html>
-
