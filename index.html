@@ -113,6 +113,62 @@
     margin: auto;
   }
 
+  /* Banner */
+  .banner{
+    margin:32px 0;
+    border-radius:14px;
+    overflow:hidden;
+    line-height:0;
+  }
+  .banner img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:14px;
+  }
+
+  /* Feature section (image left, text right) */
+  .feature{
+    display:flex;
+    align-items:center;
+    gap:32px;
+    margin:40px 0;
+  }
+  .feature-img{
+    flex:0 0 280px;
+    height:200px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    background:#f9fafb;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:13px;
+    color:var(--muted);
+    overflow:hidden;
+  }
+  .feature-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:10px;
+  }
+  .feature-text{
+    flex:1;
+    min-width:0;
+  }
+  .feature-text h2{
+    font-size:24px;
+    font-weight:600;
+    margin:0 0 8px 0;
+  }
+  .feature-text p{
+    font-size:15px;
+    color:var(--muted);
+    line-height:1.65;
+    margin:0;
+  }
+
   /* Cards */
   .grid{
     display:grid;
@@ -161,6 +217,8 @@
 
   @media (max-width:640px){
     main{ margin:28px auto; }
+    .feature{ flex-direction:column; gap:20px; }
+    .feature-img{ flex:none; width:100%; height:180px; }
     .grid{ grid-template-columns:1fr; }
   }
 </style>
@@ -188,7 +246,17 @@
     </p>
   </div>
 
-  <section>Here</section>
+  <section class="banner">
+    <img src="images/yoga.jpg" alt="Banner image" />
+  </section>
+
+  <section class="feature">
+    <div class="feature-img" id="featureImg">IMAGE</div>
+    <div class="feature-text">
+      <h2>Section Heading</h2>
+      <p>A short paragraph describing this section. Replace with real content from fibodo.</p>
+    </div>
+  </section>
 
   <section class="grid" aria-label="Sections">
     <a class="card" data-section="about" href="#about">
