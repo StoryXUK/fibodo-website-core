@@ -1,9 +1,11 @@
+```html
 <!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Client Portal</title>
+<title>fibodo — Client Page</title>
+<meta name="description" content="fibodo client page" />
 
 <style>
   :root{
@@ -15,7 +17,7 @@
     --max: 760px;
   }
 
-  *{box-sizing:border-box}
+  *{ box-sizing:border-box; }
 
   body{
     margin:0;
@@ -27,102 +29,113 @@
     line-height:1.5;
   }
 
+  /* Header (simple, ChatGPT-like) */
   header{
     border-bottom:1px solid var(--border);
     padding:14px 20px;
   }
-
   .header-inner{
     max-width:var(--max);
     margin:0 auto;
     display:flex;
     align-items:center;
     justify-content:space-between;
+    gap:12px;
   }
-
   .brand{
     display:flex;
     align-items:center;
     gap:12px;
+    min-width:0;
   }
-
   .logo{
     width:32px;
     height:32px;
     border:1px solid var(--border);
+    border-radius:6px;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:12px;
+    font-size:11px;
     color:var(--muted);
+    flex:0 0 auto;
+    overflow:hidden;
+    background:#fff;
   }
-
   .brand-name{
     font-weight:600;
     font-size:15px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
   }
-
   .login{
     font-size:14px;
     color:var(--muted);
     text-decoration:none;
+    white-space:nowrap;
   }
+  .login:hover{ text-decoration:underline; }
 
-  .login:hover{
-    text-decoration:underline;
-  }
-
+  /* Main container */
   main{
     max-width:var(--max);
     margin:40px auto;
     padding:0 20px;
   }
 
-  h1{
-    font-size:24px;
+  /* ChatGPT-like typography block */
+  .chatgpt-content{
+    max-width:720px;
+  }
+  .chatgpt-content h1{
+    font-size:28px;
     font-weight:600;
-    margin:0 0 8px;
+    letter-spacing:-0.01em;
+    margin:0 0 8px 0;
+    color:var(--text);
   }
-
-  .tagline{
-    font-size:14px;
+  .chatgpt-content .tagline{
+    font-size:15px;
     color:var(--muted);
-    margin-bottom:20px;
+    margin:0 0 16px 0;
+    line-height:1.5;
   }
-
-  .description{
+  .chatgpt-content .description{
     font-size:16px;
-    margin-bottom:30px;
+    color:var(--text);
+    line-height:1.65;
+    margin:0 0 28px 0;
   }
 
+  /* Cards */
   .grid{
     display:grid;
     grid-template-columns: repeat(2, 1fr);
     gap:12px;
+    margin-top:8px;
   }
-
   .card{
     border:1px solid var(--border);
+    border-radius:10px;
     padding:18px;
-    border-radius:8px;
     text-decoration:none;
     color:var(--text);
-    font-size:15px;
-    transition:background .15s ease;
+    transition: background .15s ease;
+    display:block;
+    min-height:108px;
   }
-
-  .card:hover{
-    background:var(--hover);
-  }
-
+  .card:hover{ background:var(--hover); }
   .card-title{
     font-weight:600;
-    margin-bottom:4px;
+    font-size:15px;
+    margin:0 0 6px 0;
   }
-
   .card-desc{
     font-size:14px;
     color:var(--muted);
+    margin:0;
+    line-height:1.55;
   }
 
   footer{
@@ -132,26 +145,28 @@
     color:var(--muted);
     margin-top:60px;
   }
-
   .footer-inner{
     max-width:var(--max);
     margin:0 auto;
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    flex-wrap:wrap;
   }
 
   @media (max-width:640px){
-    .grid{
-      grid-template-columns:1fr;
-    }
+    main{ margin:28px auto; }
+    .grid{ grid-template-columns:1fr; }
   }
-
 </style>
 </head>
+
 <body>
 
 <header>
   <div class="header-inner">
     <div class="brand">
-      <div class="logo">LOGO</div>
+      <div class="logo" id="logoBox" title="Logo placeholder">LOGO</div>
       <div class="brand-name" id="bizNameTop">Business Name</div>
     </div>
     <a class="login" id="loginLink" href="/login">Login</a>
@@ -159,72 +174,107 @@
 </header>
 
 <main>
-  <h1 id="bizName">Business Name</h1>
-  <div class="tagline" id="bizTagline">Your short tagline goes here</div>
-
-  <div class="description" id="bizDescription">
-    This page allows clients to access bookings, memberships, vouchers,
-    on-demand content and live streaming sessions.
+  <div class="chatgpt-content">
+    <h1 id="bizName">Business Name</h1>
+    <p class="tagline" id="bizTagline">A short tagline goes here</p>
+    <p class="description" id="bizDesc">
+      This is a simple, neutral client page. Replace this text with the business description pulled from fibodo.
+      Keep it short—what you offer, who it’s for, and what people can do next.
+    </p>
   </div>
 
-  <div class="grid">
-    <a href="#" class="card">
+  <section class="grid" aria-label="Sections">
+    <a class="card" data-section="about" href="#about">
       <div class="card-title">About</div>
-      <div class="card-desc">Learn more about this business.</div>
+      <p class="card-desc">Who you are, what you offer, and how clients get started.</p>
     </a>
 
-    <a href="#" class="card">
+    <a class="card" data-section="timetable" href="#timetable">
       <div class="card-title">Timetable</div>
-      <div class="card-desc">View upcoming sessions and availability.</div>
+      <p class="card-desc">View upcoming sessions and availability.</p>
     </a>
 
-    <a href="#" class="card">
+    <a class="card" data-section="ondemand" href="#ondemand">
       <div class="card-title">On Demand</div>
-      <div class="card-desc">Access video classes and programmes.</div>
+      <p class="card-desc">Access video classes and programmes.</p>
     </a>
 
-    <a href="#" class="card">
+    <a class="card" data-section="livestream" href="#livestream">
       <div class="card-title">Live Streaming</div>
-      <div class="card-desc">Join live sessions in real time.</div>
+      <p class="card-desc">Join live sessions in real time.</p>
     </a>
 
-    <a href="#" class="card">
+    <a class="card" data-section="vouchers" href="#vouchers">
       <div class="card-title">Vouchers</div>
-      <div class="card-desc">Purchase or redeem gift vouchers.</div>
+      <p class="card-desc">Purchase or redeem gift vouchers.</p>
     </a>
 
-    <a href="#" class="card">
+    <a class="card" data-section="memberships" href="#memberships">
       <div class="card-title">Memberships</div>
-      <div class="card-desc">Manage subscriptions and plans.</div>
+      <p class="card-desc">Manage subscriptions and plans.</p>
     </a>
-  </div>
+  </section>
 </main>
 
 <footer>
   <div class="footer-inner">
-    Powered by fibodo
+    <div>Powered by fibodo</div>
+    <div>© <span id="year"></span> <span id="bizNameFoot">Business Name</span></div>
   </div>
 </footer>
 
 <script>
-  // Example population object
+  // Example population object (replace with your backend/API)
   const businessData = {
-    name: "London Yoga Studio",
-    tagline: "Movement, mindfulness and strength",
-    description: "Book classes, manage memberships, access on-demand content and join live sessions — all in one place.",
-    loginUrl: "/login"
+    name: "Business Name",
+    tagline: "A short tagline goes here",
+    description: "This is a simple, neutral client page. Replace this text with the business description pulled from fibodo. Keep it short—what you offer, who it’s for, and what people can do next.",
+    loginUrl: "/login",
+    // logoUrl: "https://example.com/logo.png" // optional
+    routes: {
+      about: "#about",
+      timetable: "#timetable",
+      ondemand: "#ondemand",
+      livestream: "#livestream",
+      vouchers: "#vouchers",
+      memberships: "#memberships"
+    }
   };
 
   function populate(data){
-    document.getElementById("bizName").textContent = data.name;
-    document.getElementById("bizNameTop").textContent = data.name;
-    document.getElementById("bizTagline").textContent = data.tagline;
-    document.getElementById("bizDescription").textContent = data.description;
-    document.getElementById("loginLink").href = data.loginUrl;
+    const name = data.name || "Business Name";
+    document.getElementById("bizNameTop").textContent = name;
+    document.getElementById("bizName").textContent = name;
+    document.getElementById("bizNameFoot").textContent = name;
+
+    document.getElementById("bizTagline").textContent = data.tagline || "";
+    document.getElementById("bizDesc").textContent = data.description || "";
+
+    document.getElementById("loginLink").href = data.loginUrl || "/login";
+
+    // Optional: swap logo placeholder for an image
+    if (data.logoUrl){
+      const box = document.getElementById("logoBox");
+      box.textContent = "";
+      box.style.borderStyle = "solid";
+      box.style.backgroundImage = `url('${data.logoUrl}')`;
+      box.style.backgroundSize = "contain";
+      box.style.backgroundRepeat = "no-repeat";
+      box.style.backgroundPosition = "center";
+    }
+
+    // Wire section links
+    document.querySelectorAll(".card").forEach(card => {
+      const key = card.getAttribute("data-section");
+      const href = (data.routes && data.routes[key]) ? data.routes[key] : "#";
+      card.setAttribute("href", href);
+    });
   }
 
+  document.getElementById("year").textContent = new Date().getFullYear();
   populate(businessData);
 </script>
 
 </body>
 </html>
+```
