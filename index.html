@@ -152,32 +152,57 @@
     margin-top:60px;
   }
 
-  .card{
-    border:1px solid var(--border);
-    border-radius:16px;
-    padding:40px;
-    text-decoration:none;
-    color:var(--text);
-    transition: background .15s ease, transform .15s ease;
-    min-height:200px;
-  }
+  .grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:36px;
+  margin-top:80px;
+}
 
-  .card:hover{
-    background:var(--hover);
-    transform:translateY(-2px);
-  }
+.card{
+  border:1px solid #e5e7eb;
+  border-radius:18px;
+  padding:48px 40px;
+  text-decoration:none;
+  color:#0f172a;
+  background:#ffffff;
+  transition: all .2s ease;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+  min-height:240px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+}
 
-  .card-title{
-    font-weight:600;
-    font-size:22px;
-    margin-bottom:12px;
-  }
+.card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+  border-color:#d1d5db;
+}
 
-  .card-desc{
-    font-size:17px;
-    color:var(--muted);
-    line-height:1.6;
-  }
+.card-icon{
+  width:52px;
+  height:52px;
+  border-radius:14px;
+  background:#f3f4f6;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  margin-bottom:22px;
+}
+
+.card-title{
+  font-weight:600;
+  font-size:22px;
+  margin-bottom:14px;
+}
+
+.card-desc{
+  font-size:17px;
+  color:#6b7280;
+  line-height:1.6;
+}
 
   footer{
     border-top:1px solid var(--border);
@@ -387,37 +412,43 @@ footer{
 
   <section class="grid">
 
-    <a class="card">
-      <div class="card-title">About</div>
-      <div class="card-desc">Who you are and how clients get started.</div>
-    </a>
+  <a class="card">
+    <div class="card-icon">📖</div>
+    <div class="card-title">About</div>
+    <div class="card-desc">Who you are and how clients get started.</div>
+  </a>
 
-    <a class="card">
-      <div class="card-title">Timetable</div>
-      <div class="card-desc">View upcoming sessions and availability.</div>
-    </a>
+  <a class="card">
+    <div class="card-icon">📅</div>
+    <div class="card-title">Timetable</div>
+    <div class="card-desc">View upcoming sessions and availability.</div>
+  </a>
 
-    <a class="card">
-      <div class="card-title">On Demand</div>
-      <div class="card-desc">Access video classes and programmes.</div>
-    </a>
+  <a class="card">
+    <div class="card-icon">🎬</div>
+    <div class="card-title">On Demand</div>
+    <div class="card-desc">Access video classes and programmes.</div>
+  </a>
 
-    <a class="card">
-      <div class="card-title">Live Streaming</div>
-      <div class="card-desc">Join live sessions in real time.</div>
-    </a>
+  <a class="card">
+    <div class="card-icon">🔴</div>
+    <div class="card-title">Live Streaming</div>
+    <div class="card-desc">Join live sessions in real time.</div>
+  </a>
 
-    <a class="card">
-      <div class="card-title">Vouchers</div>
-      <div class="card-desc">Purchase or redeem gift vouchers.</div>
-    </a>
+  <a class="card">
+    <div class="card-icon">🎁</div>
+    <div class="card-title">Vouchers</div>
+    <div class="card-desc">Purchase or redeem gift vouchers.</div>
+  </a>
 
-    <a class="card">
-      <div class="card-title">Memberships</div>
-      <div class="card-desc">Manage subscriptions and plans.</div>
-    </a>
+  <a class="card">
+    <div class="card-icon">⭐</div>
+    <div class="card-title">Memberships</div>
+    <div class="card-desc">Manage subscriptions and plans.</div>
+  </a>
 
-  </section>
+</section>
 
 </main>
 
