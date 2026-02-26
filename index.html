@@ -5,422 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>fibodo — Client Page</title>
-
-  <style>
-    :root {
-      --bg: #ffffff;
-      --text: #0f172a;
-      --muted: #6b7280;
-      --border: #e5e7eb;
-      --hover: #f3f4f6;
-      --max: 1800px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      font-size: 16px;
-      line-height: 1.5;
-    }
-
-    header {
-      border-bottom: 1px solid var(--border);
-      padding: 14px 40px;
-    }
-
-    .header-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo {
-      width: 36px;
-      height: 36px;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      color: var(--muted);
-      background: #fff;
-    }
-
-    .brand-name {
-      font-weight: 600;
-      font-size: 16px;
-    }
-
-    .auth-links {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .login {
-      font-size: 15px;
-      color: var(--muted);
-      text-decoration: none;
-    }
-
-    .login:hover {
-      text-decoration: underline;
-    }
-
-    main {
-      max-width: var(--max);
-      margin: 60px auto;
-      padding: 0 40px;
-    }
-
-    .hero-content {
-      max-width: 1000px;
-      margin: 0 auto 60px auto;
-      text-align: center;
-    }
-
-    .hero-content h1 {
-      font-size: 68px;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      margin: 0 0 12px 0;
-    }
-
-    .hero-content .tagline {
-      font-size: 22px;
-      color: var(--muted);
-      margin-bottom: 20px;
-    }
-
-    .hero-content .description {
-      font-size: 18px;
-      line-height: 1.7;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .banner {
-      margin: 60px 0;
-      border-radius: 18px;
-      overflow: hidden;
-
-    }
-
-    .banner img {
-      width: 100%;
-      display: block;
-      max-height: 200px;
-      object-fit: cover;
-    }
-
-    .feature {
-      display: flex;
-      align-items: center;
-      gap: 60px;
-      margin: 80px 0;
-    }
-
-    .feature-img {
-      flex: 0 0 400px;
-      height: 280px;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      background: #f9fafb;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--muted);
-    }
-
-    .feature-text h2 {
-      font-size: 32px;
-      margin-bottom: 14px;
-    }
-
-    .feature-text p {
-      font-size: 18px;
-      color: var(--muted);
-    }
-
-    .services-header {
-      text-align: center;
-    }
-
-    .services-header h2 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-
-    /* 3 COLUMN GRID */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      margin-top: 60px;
-    }
-
-    .grid{
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap:40px;
-  margin-top:60px;
-}
-
-.card{
-  border-radius:18px;
-  overflow:hidden;
-  background:#ffffff;
-  text-decoration:none;
-  color:#0f172a;
-  transition:all .25s ease;
-  box-shadow:0 8px 25px rgba(0,0,0,0.05);
-  display:flex;
-  flex-direction:column;
-}
-
-.card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 25px 50px rgba(0,0,0,0.1);
-}
-
-.card-image{
-  width:100%;
-  height:220px;
-  overflow:hidden;
-}
-
-.card-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:transform .4s ease;
-}
-
-.card:hover .card-image img{
-  transform:scale(1.05);
-}
-
-.card-body{
-  padding:32px;
-}
-
-.card-title{
-  font-size:22px;
-  font-weight:600;
-  margin-bottom:14px;
-}
-
-.card-desc{
-  font-size:16px;
-  color:#6b7280;
-  line-height:1.6;
-}
-
-/* Responsive */
-@media (max-width:1200px){
-  .grid{ grid-template-columns: repeat(2,1fr); }
-}
-
-@media (max-width:768px){
-  .grid{ grid-template-columns:1fr; }
-}
-
-    .card-desc {
-      font-size: 17px;
-      color: #6b7280;
-      line-height: 1.6;
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 24px 40px;
-      font-size: 14px;
-      color: var(--muted);
-      margin-top: 100px;
-    }
-
-    .footer-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    /* ===== BLACK FOOTER ===== */
-
-    footer {
-      background: #000000;
-      color: #ffffff;
-      margin-top: 120px;
-      padding: 80px 40px 40px 40px;
-    }
-
-    .footer-container {
-      max-width: 1800px;
-      margin: 0 auto;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 60px;
-      margin-bottom: 60px;
-    }
-
-    .footer-col h4 {
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 20px;
-      color: #ffffff;
-    }
-
-    .footer-col a {
-      display: block;
-      font-size: 14px;
-      color: #9ca3af;
-      text-decoration: none;
-      margin-bottom: 12px;
-      transition: color .2s ease;
-    }
-
-    .footer-col a:hover {
-      color: #ffffff;
-    }
-
-    .footer-bottom {
-      border-top: 1px solid #222;
-      padding-top: 24px;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
-      font-size: 13px;
-      color: #9ca3af;
-    }
-
-    .footer-legal a {
-      margin-right: 20px;
-      color: #9ca3af;
-      text-decoration: none;
-    }
-
-    .footer-legal a:hover {
-      color: #ffffff;
-    }
-
-    /* CTA BUTTONS */
-
-    .cta-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      margin-top: 28px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 14px 28px;
-      font-size: 16px;
-      font-weight: 500;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: all .15s ease;
-      display: inline-block;
-      min-width: 180px;
-      text-align: center;
-    }
-
-    /* Primary button */
-    .btn-primary {
-      background: #000000;
-      color: #ffffff;
-      border: 1px solid #000000;
-    }
-
-    .btn-primary:hover {
-      background: #111111;
-    }
-
-    /* Secondary button */
-    .btn-secondary {
-      background: #ffffff;
-      color: #000000;
-      border: 1px solid #e5e7eb;
-    }
-
-    .btn-secondary:hover {
-      background: #f3f4f6;
-    }
-
-    /* Mobile stacking */
-    @media (max-width:600px) {
-      .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .btn {
-        width: 100%;
-        max-width: 320px;
-      }
-    }
-
-    /* Responsive */
-    @media (max-width:1100px) {
-      .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px;
-      }
-    }
-
-    @media (max-width:600px) {
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    /* Responsive */
-    @media (max-width:1200px) {
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width:768px) {
-      main {
-        padding: 0 20px;
-      }
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .feature {
-        flex-direction: column;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
@@ -455,6 +40,7 @@
         <a href="#download" class="btn btn-secondary">Download app</a>
         <a href="#download" class="btn btn-secondary">Memberships</a>
         <a href="#download" class="btn btn-secondary">Vouchers</a>
+        <a href="#download" class="btn btn-secondary">On Demand</a>
       </div>
     </div>
 
@@ -488,6 +74,7 @@
       <div class="card-desc">
         Private sessions tailored to your goals, ability and schedule.
       </div>
+      <span class="card-btn">Book Now</span>
     </div>
   </a>
 
@@ -501,6 +88,7 @@
       <div class="card-desc">
         Build strength, improve performance, and move with confidence.
       </div>
+      <span class="card-btn">Book Now</span>
     </div>
   </a>
 
@@ -514,6 +102,7 @@
       <div class="card-desc">
         Simple, sustainable habits to support training and recovery.
       </div>
+      <span class="card-btn">Book Now</span>
     </div>
   </a>
 
@@ -527,6 +116,7 @@
       <div class="card-desc">
         Baseline testing, movement screening, and a clear training roadmap.
       </div>
+      <span class="card-btn">Book Now</span>
     </div>
   </a>
 
@@ -540,6 +130,7 @@
       <div class="card-desc">
         Follow structured workouts anytime, anywhere.
       </div>
+      <span class="card-btn">Book Now</span>
     </div>
   </a>
 
@@ -553,6 +144,7 @@
       <div class="card-desc">
         Train live with real-time coaching and accountability.
       </div>
+      <span class="card-btn">Book Now</span>
     </div>
   </a>
 
@@ -564,7 +156,7 @@
 
 <section class="grid">
 
-  <a class="card" href="#blog-1">
+  <a class="card" href="blog.html">
     <div class="card-image">
       <img src="images/yoga.jpg" alt="Blog post 1">
     </div>
@@ -576,7 +168,7 @@
     </div>
   </a>
 
-  <a class="card" href="#blog-2">
+  <a class="card" href="blog.html">
     <div class="card-image">
       <img src="images/strength-conditioning.jpg" alt="Blog post 2">
     </div>
@@ -588,7 +180,7 @@
     </div>
   </a>
 
-  <a class="card" href="#blog-3">
+  <a class="card" href="blog.html">
     <div class="card-image">
       <img src="images/nutrition-habit-coaching.jpg" alt="Blog post 3">
     </div>
@@ -609,19 +201,26 @@
   <footer>
     <div class="footer-container">
 
-      
-
-      <div class="footer-bottom">
-        <div>
-          © 2026 Business Name. All rights reserved.
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:email@example.com">email</a>
+          <a href="tel:+000000000">phone</a>
         </div>
-
-        <div class="footer-legal">
+        <div class="footer-col">
+          <h4>Legal</h4>
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Service</a>
           <a href="#">Cookies</a>
-          <a href="#">GDPR</a>
         </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Business Name. All rights reserved. Powered by <a target="_blank" href="https://fibodo.com/">fibodo</a>
+        </div>
+
+        
       </div>
 
     </div>
