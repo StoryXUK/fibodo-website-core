@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>fibodo — Weekly Exercise Plan</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <div class="logo">LOGO</div>
+        <div class="brand-name">Business Name</div>
+      </a>
+      <div class="auth-links">
+        <a class="login" href="/login">Sign Up</a>
+        <a class="login" href="/login">Login</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="workout-wrap">
+
+      <div class="workout-header">
+        <h1>Weekly Exercise Plan</h1>
+        <p>Keep it simple: what you’re doing, when, and how it felt.</p>
+      </div>
+
+      <div class="workout-controls">
+        <div class="left">
+          <span class="workout-label">Week starting</span>
+          <input class="workout-input" type="date" />
+          <button class="workout-btn" onclick="window.print()">Print</button>
+        </div>
+        <div class="right">
+          <button class="workout-btn" type="button" id="clearWorkoutBtn">Clear plan</button>
+        </div>
+      </div>
+
+      <div class="workout-scroll">
+        <table class="workout-table" aria-label="Weekly exercise plan table">
+          <thead>
+            <tr>
+              <th>Section</th>
+              <th>Mon</th>
+              <th>Tue</th>
+              <th>Wed</th>
+              <th>Thu</th>
+              <th>Fri</th>
+              <th>Sat</th>
+              <th>Sun</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td class="workout-col">Main session</td>
+              <td><textarea class="workout-cell" placeholder="e.g. Strength — Lower body"></textarea></td>
+              <td><textarea class="workout-cell"></textarea></td>
+              <td><textarea class="workout-cell"></textarea></td>
+              <td><textarea class="workout-cell"></textarea></td>
+              <td><textarea class="workout-cell"></textarea></td>
+              <td><textarea class="workout-cell"></textarea></td>
+              <td><textarea class="workout-cell"></textarea></td>
+            </tr>
+
+            <tr>
+              <td class="workout-col">Accessory / mobility</td>
+              <td><textarea class="workout-cell" placeholder="e.g. Core + hips 10 mins"></textarea></td>
+              <td><textarea class="workout-cell"></textarea></td>
+              <td><textarea class="workout-cell"></textarea></td>
+              <td><textarea class="workout-cell"></textarea></td>
+              <td><textarea class="workout-cell"></textarea></td>
+              <td><textarea class="workout-cell"></textarea></td>
+              <td><textarea class="workout-cell"></textarea></td>
+            </tr>
+
+            <tr>
+              <td class="workout-col">Cardio / steps</td>
+              <td><textarea class="workout-cell" placeholder="e.g. 30 min walk / 8k steps"></textarea></td>
+              <td><textarea class="workout-cell"></textarea></td>
+              <td><textarea class="workout-cell"></textarea></td>
+              <td><textarea class="workout-cell"></textarea></td>
+              <td><textarea class="workout-cell"></textarea></td>
+              <td><textarea class="workout-cell"></textarea></td>
+              <td><textarea class="workout-cell"></textarea></td>
+            </tr>
+
+            <tr>
+              <td class="workout-col">Recovery</td>
+              <td><textarea class="workout-cell" placeholder="e.g. Stretch + early night"></textarea></td>
+              <td><textarea class="workout-cell"></textarea></td>
+              <td><textarea class="workout-cell"></textarea></td>
+              <td><textarea class="workout-cell"></textarea></td>
+              <td><textarea class="workout-cell"></textarea></td>
+              <td><textarea class="workout-cell"></textarea></td>
+              <td><textarea class="workout-cell"></textarea></td>
+            </tr>
+
+            <tr>
+              <td class="workout-col">How it felt</td>
+              <td><textarea class="workout-cell" placeholder="1–10 effort / mood / pain?"></textarea></td>
+              <td><textarea class="workout-cell"></textarea></td>
+              <td><textarea class="workout-cell"></textarea></td>
+              <td><textarea class="workout-cell"></textarea></td>
+              <td><textarea class="workout-cell"></textarea></td>
+              <td><textarea class="workout-cell"></textarea></td>
+              <td><textarea class="workout-cell"></textarea></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="workout-bottom">
+        <div class="workout-box">
+          <h3>Goals for this week</h3>
+          <textarea placeholder="e.g. 3 strength sessions, 2 walks, mobility daily..."></textarea>
+        </div>
+
+        <div class="workout-box">
+          <h3>Notes / injuries / reminders</h3>
+          <textarea placeholder="Anything to watch, modify, or remember..."></textarea>
+        </div>
+      </div>
+
+    </section>
+
+    <script>
+      document.getElementById('clearWorkoutBtn').addEventListener('click', function () {
+        const inputs = document.querySelectorAll('.workout-wrap textarea');
+        inputs.forEach(t => t.value = '');
+      });
+    </script>
+
+  </main>
+
+  <footer>
+    <div class="footer-container">
+
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:email@example.com">email</a>
+          <a href="tel:+000000000">phone</a>
+        </div>
+        <div class="footer-col">
+          <h4>Content</h4>
+          <a href="blog.html">Blog</a>
+          <a href="#">Meal Plan</a>
+          <a href="#">Workouts</a>
+          <a href="#">On Demand</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Business Name. All rights reserved. Powered by
+          <a target="_blank" href="https://fibodo.com/">fibodo</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>

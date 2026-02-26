@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>fibodo — Weekly Meal Plan</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <div class="logo">LOGO</div>
+        <div class="brand-name">Business Name</div>
+      </a>
+      <div class="auth-links">
+        <a class="login" href="/login">Sign Up</a>
+        <a class="login" href="/login">Login</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="mealplan-wrap">
+
+      <div class="mealplan-header">
+        <h1>Weekly Meal Plan</h1>
+        <p>Fill it in, keep it simple, and use the shopping list to stay on track.</p>
+      </div>
+
+      <div class="mealplan-controls">
+        <div class="left">
+          <span class="mealplan-label">Week starting</span>
+          <input class="mealplan-input" type="date" />
+          <button class="mealplan-btn" onclick="window.print()">Print</button>
+        </div>
+
+        <div class="right">
+          <button class="mealplan-btn" type="button" id="clearPlanBtn">Clear plan</button>
+        </div>
+      </div>
+
+      <div class="mealplan-scroll">
+        <table class="mealplan-table" aria-label="Weekly meal plan table">
+          <thead>
+            <tr>
+              <th>Meal</th>
+              <th>Mon</th>
+              <th>Tue</th>
+              <th>Wed</th>
+              <th>Thu</th>
+              <th>Fri</th>
+              <th>Sat</th>
+              <th>Sun</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td class="meal-col">Breakfast</td>
+              <td><textarea class="mealplan-cell" placeholder="e.g. Oats + berries"></textarea></td>
+              <td><textarea class="mealplan-cell"></textarea></td>
+              <td><textarea class="mealplan-cell"></textarea></td>
+              <td><textarea class="mealplan-cell"></textarea></td>
+              <td><textarea class="mealplan-cell"></textarea></td>
+              <td><textarea class="mealplan-cell"></textarea></td>
+              <td><textarea class="mealplan-cell"></textarea></td>
+            </tr>
+
+            <tr>
+              <td class="meal-col">Lunch</td>
+              <td><textarea class="mealplan-cell" placeholder="e.g. Soup + bread"></textarea></td>
+              <td><textarea class="mealplan-cell"></textarea></td>
+              <td><textarea class="mealplan-cell"></textarea></td>
+              <td><textarea class="mealplan-cell"></textarea></td>
+              <td><textarea class="mealplan-cell"></textarea></td>
+              <td><textarea class="mealplan-cell"></textarea></td>
+              <td><textarea class="mealplan-cell"></textarea></td>
+            </tr>
+
+            <tr>
+              <td class="meal-col">Dinner</td>
+              <td><textarea class="mealplan-cell" placeholder="e.g. Curry + rice"></textarea></td>
+              <td><textarea class="mealplan-cell"></textarea></td>
+              <td><textarea class="mealplan-cell"></textarea></td>
+              <td><textarea class="mealplan-cell"></textarea></td>
+              <td><textarea class="mealplan-cell"></textarea></td>
+              <td><textarea class="mealplan-cell"></textarea></td>
+              <td><textarea class="mealplan-cell"></textarea></td>
+            </tr>
+
+            <tr>
+              <td class="meal-col">Snacks</td>
+              <td><textarea class="mealplan-cell" placeholder="e.g. Fruit, yoghurt"></textarea></td>
+              <td><textarea class="mealplan-cell"></textarea></td>
+              <td><textarea class="mealplan-cell"></textarea></td>
+              <td><textarea class="mealplan-cell"></textarea></td>
+              <td><textarea class="mealplan-cell"></textarea></td>
+              <td><textarea class="mealplan-cell"></textarea></td>
+              <td><textarea class="mealplan-cell"></textarea></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mealplan-bottom">
+        <div class="mealplan-box">
+          <h3>Notes</h3>
+          <textarea placeholder="Prep ideas, goals, reminders..."></textarea>
+        </div>
+
+        <div class="mealplan-box">
+          <h3>Shopping list</h3>
+          <textarea placeholder="Ingredients to buy..."></textarea>
+        </div>
+      </div>
+
+    </section>
+
+    <script>
+      // Simple clear button: clears all textareas in the plan area
+      document.getElementById('clearPlanBtn').addEventListener('click', function () {
+        const inputs = document.querySelectorAll('.mealplan-wrap textarea');
+        inputs.forEach(t => t.value = '');
+      });
+    </script>
+
+  </main>
+
+  <footer>
+    <div class="footer-container">
+
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:email@example.com">email</a>
+          <a href="tel:+000000000">phone</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Business Name. All rights reserved. Powered by
+          <a target="_blank" href="https://fibodo.com/">fibodo</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>

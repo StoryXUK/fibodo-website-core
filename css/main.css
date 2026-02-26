@@ -287,7 +287,7 @@
 
     .footer-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 60px;
       margin-bottom: 60px;
     }
@@ -321,6 +321,15 @@
       gap: 20px;
       font-size: 13px;
       color: #9ca3af;
+    }
+
+    .footer-bottom a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .footer-bottom a:hover {
+      text-decoration: underline;
     }
 
     .footer-legal a {
@@ -548,3 +557,380 @@
         flex-direction: column;
       }
     }
+
+
+    /* Mealplan CSS */
+
+    /* ===== WEEKLY MEAL PLAN ===== */
+
+.mealplan-wrap{
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.mealplan-header{
+  text-align:center;
+  margin-bottom: 28px;
+}
+
+.mealplan-header h1{
+  font-size: 44px;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px 0;
+}
+
+.mealplan-header p{
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+/* Week picker row */
+.mealplan-controls{
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  gap: 16px;
+  margin: 26px 0 22px 0;
+  flex-wrap: wrap;
+}
+
+.mealplan-controls .left,
+.mealplan-controls .right{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.mealplan-label{
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.mealplan-input{
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  background: #fff;
+  color: var(--text);
+  min-width: 220px;
+}
+
+.mealplan-btn{
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background .15s ease;
+}
+
+.mealplan-btn:hover{
+  background: var(--hover);
+}
+
+/* Planner table */
+.mealplan-table{
+  width:100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+}
+
+.mealplan-table th,
+.mealplan-table td{
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.mealplan-table tr:last-child td{ border-bottom: 0; }
+.mealplan-table th:last-child,
+.mealplan-table td:last-child{ border-right: 0; }
+
+.mealplan-table thead th{
+  background: #f9fafb;
+  padding: 14px 12px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: #374151;
+  font-weight: 600;
+  text-align: left;
+}
+
+.mealplan-table .meal-col{
+  width: 140px;
+  background: #fff;
+  padding: 14px 12px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.mealplan-table td{
+  padding: 10px;
+}
+
+.mealplan-cell{
+  width:100%;
+  min-height: 84px;
+  border: 1px solid transparent; /* keeps layout stable */
+  border-radius: 10px;
+  padding: 10px;
+  resize: vertical;
+  font-size: 14px;
+  line-height: 1.5;
+  background: #fff;
+  color: var(--text);
+  outline: none;
+}
+
+.mealplan-cell:focus{
+  border-color: #cbd5e1;
+  box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.06);
+}
+
+/* Notes + shopping list */
+.mealplan-bottom{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.mealplan-box{
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  background: #fff;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+}
+
+.mealplan-box h3{
+  margin: 0 0 10px 0;
+  font-size: 16px;
+}
+
+.mealplan-box textarea{
+  width:100%;
+  min-height: 180px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 14px;
+  resize: vertical;
+  outline: none;
+}
+
+.mealplan-box textarea:focus{
+  border-color: #cbd5e1;
+  box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.06);
+}
+
+/* Mobile: stack and make table scroll */
+@media (max-width: 980px){
+  .mealplan-bottom{ grid-template-columns: 1fr; }
+  .mealplan-scroll{
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 16px;
+  }
+  .mealplan-table{
+    min-width: 900px; /* enables horizontal scroll */
+  }
+}
+
+/* ===== WEEKLY EXERCISE PLAN ===== */
+
+.workout-wrap{
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.workout-header{
+  text-align:center;
+  margin-bottom: 28px;
+}
+
+.workout-header h1{
+  font-size: 44px;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px 0;
+}
+
+.workout-header p{
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+/* Controls row */
+.workout-controls{
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  gap: 16px;
+  margin: 26px 0 22px 0;
+  flex-wrap: wrap;
+}
+
+.workout-controls .left,
+.workout-controls .right{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.workout-label{
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.workout-input{
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  background: #fff;
+  color: var(--text);
+  min-width: 220px;
+}
+
+.workout-btn{
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background .15s ease;
+}
+
+.workout-btn:hover{
+  background: var(--hover);
+}
+
+/* Planner table */
+.workout-table{
+  width:100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+}
+
+.workout-table th,
+.workout-table td{
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.workout-table tr:last-child td{ border-bottom: 0; }
+.workout-table th:last-child,
+.workout-table td:last-child{ border-right: 0; }
+
+.workout-table thead th{
+  background: #f9fafb;
+  padding: 14px 12px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: #374151;
+  font-weight: 600;
+  text-align: left;
+}
+
+.workout-table .workout-col{
+  width: 170px;
+  background: #fff;
+  padding: 14px 12px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.workout-table td{
+  padding: 10px;
+}
+
+.workout-cell{
+  width:100%;
+  min-height: 92px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 10px;
+  resize: vertical;
+  font-size: 14px;
+  line-height: 1.5;
+  background: #fff;
+  color: var(--text);
+  outline: none;
+}
+
+.workout-cell:focus{
+  border-color: #cbd5e1;
+  box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.06);
+}
+
+/* Bottom boxes */
+.workout-bottom{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.workout-box{
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  background: #fff;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+}
+
+.workout-box h3{
+  margin: 0 0 10px 0;
+  font-size: 16px;
+}
+
+.workout-box textarea{
+  width:100%;
+  min-height: 180px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 14px;
+  resize: vertical;
+  outline: none;
+}
+
+.workout-box textarea:focus{
+  border-color: #cbd5e1;
+  box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.06);
+}
+
+/* Mobile: stack and make table scroll */
+@media (max-width: 980px){
+  .workout-bottom{ grid-template-columns: 1fr; }
+  .workout-scroll{
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 16px;
+  }
+  .workout-table{
+    min-width: 900px;
+  }
+}
