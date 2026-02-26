@@ -460,8 +460,8 @@
     .download-app-image img {
       width: 100%;
       display: block;
-      height: 400px;
-      object-fit: cover;
+      max-height: 480px;
+      object-fit: contain;
     }
 
     .download-app-text h2 {
@@ -506,7 +506,7 @@
       }
 
       .download-app-image img {
-        height: 280px;
+        max-height: 320px;
       }
 
       .download-app-text h2 {

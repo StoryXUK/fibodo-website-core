@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Weekly Meal Plan — Minimal</title>
+  <title>Weekly Meal Plan</title>
   <link rel="stylesheet" href="css/main.css">
 </head>
 
@@ -30,118 +30,300 @@
 
   <main>
 
-    <section class="mealplan-wrap">
+    <section class="wo-output">
 
-      <div class="mealplan-header">
+      <!-- Hero -->
+      <div class="hero-content">
         <h1>Weekly Meal Plan</h1>
-        <p>Minimal, calm, and practical. Plan the week at a glance, keep notes, and build your shopping list as you go.</p>
+        <p class="description">
+          Plan the week at a glance, keep notes, and build your shopping list as you go.
+        </p>
       </div>
 
-      <div class="mealplan-controls">
-        <div class="left">
-          <span class="mealplan-label">Week starting</span>
-          <input class="mealplan-input" type="date" />
-          <button class="mealplan-btn" onclick="window.print()">Print</button>
+      <!-- Controls -->
+      <div class="wo-controls">
+        <div class="wo-controls-left">
+          <span class="wo-label">Week starting</span>
+          <input class="wo-date" type="date" />
         </div>
-
-        <div class="right">
-          <button class="mealplan-btn" type="button" id="clearPlanBtn">Clear plan</button>
-        </div>
-      </div>
-
-      <div class="mealplan-card">
-        <div class="mealplan-scroll">
-          <table class="mealplan-table" aria-label="Weekly meal plan table">
-            <thead>
-              <tr>
-                <th>Meal</th>
-                <th>Mon</th>
-                <th>Tue</th>
-                <th>Wed</th>
-                <th>Thu</th>
-                <th>Fri</th>
-                <th>Sat</th>
-                <th>Sun</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td class="meal-col">Breakfast</td>
-                <td><textarea class="mealplan-cell">Overnight oats • blueberries • chia</textarea></td>
-                <td><textarea class="mealplan-cell">Tofu scramble • spinach • sourdough</textarea></td>
-                <td><textarea class="mealplan-cell">Smoothie • oats • banana • berries</textarea></td>
-                <td><textarea class="mealplan-cell">Porridge • cinnamon • apple</textarea></td>
-                <td><textarea class="mealplan-cell">Avocado toast • cherry tomatoes</textarea></td>
-                <td><textarea class="mealplan-cell">Granola (nut-free) • soy yoghurt</textarea></td>
-                <td><textarea class="mealplan-cell">Pancakes • fruit • maple</textarea></td>
-              </tr>
-
-              <tr>
-                <td class="meal-col">Lunch</td>
-                <td><textarea class="mealplan-cell">Lentil soup • side salad</textarea></td>
-                <td><textarea class="mealplan-cell">Chickpea wrap • hummus • veg</textarea></td>
-                <td><textarea class="mealplan-cell">Quinoa bowl • roasted veg • tahini</textarea></td>
-                <td><textarea class="mealplan-cell">Bean chilli • rice</textarea></td>
-                <td><textarea class="mealplan-cell">Leftovers • greens</textarea></td>
-                <td><textarea class="mealplan-cell">Tomato pasta • basil</textarea></td>
-                <td><textarea class="mealplan-cell">Miso ramen • mushrooms • greens</textarea></td>
-              </tr>
-
-              <tr>
-                <td class="meal-col">Dinner</td>
-                <td><textarea class="mealplan-cell">Chickpea & potato curry • rice</textarea></td>
-                <td><textarea class="mealplan-cell">Mushroom risotto • rocket</textarea></td>
-                <td><textarea class="mealplan-cell">Vegan burrito • salsa • guac</textarea></td>
-                <td><textarea class="mealplan-cell">Stir-fry • tofu • veg • noodles</textarea></td>
-                <td><textarea class="mealplan-cell">Veg soup • crusty bread</textarea></td>
-                <td><textarea class="mealplan-cell">Roast veg tray-bake • tahini</textarea></td>
-                <td><textarea class="mealplan-cell">Homemade vegan doner • salad</textarea></td>
-              </tr>
-
-              <tr>
-                <td class="meal-col">Snacks</td>
-                <td><textarea class="mealplan-cell">Fruit • nut-free protein shake</textarea></td>
-                <td><textarea class="mealplan-cell">Carrots • hummus</textarea></td>
-                <td><textarea class="mealplan-cell">Apple • yoghurt</textarea></td>
-                <td><textarea class="mealplan-cell">Rice cakes • peanut-free spread</textarea></td>
-                <td><textarea class="mealplan-cell">Banana • dates</textarea></td>
-                <td><textarea class="mealplan-cell">Popcorn • berries</textarea></td>
-                <td><textarea class="mealplan-cell">Dark chocolate • fruit</textarea></td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="wo-controls-right">
+          <div class="wo-toggle">
+            <button class="wo-toggle-btn active" data-view="week">Week</button>
+            <button class="wo-toggle-btn" data-view="day">Day</button>
+          </div>
+          <button class="btn btn-secondary wo-action-btn" onclick="window.print()">Print</button>
+          <button class="btn btn-secondary wo-action-btn" type="button" id="clearPlanBtn">Clear</button>
         </div>
       </div>
 
-      <div class="mealplan-bottom">
-        <div class="mealplan-box">
+      <!-- Day selector (visible in day view only) -->
+      <div class="wo-day-nav" id="dayNav">
+        <button class="wo-day-btn active" data-day="0">Mon</button>
+        <button class="wo-day-btn" data-day="1">Tue</button>
+        <button class="wo-day-btn" data-day="2">Wed</button>
+        <button class="wo-day-btn" data-day="3">Thu</button>
+        <button class="wo-day-btn" data-day="4">Fri</button>
+        <button class="wo-day-btn" data-day="5">Sat</button>
+        <button class="wo-day-btn" data-day="6">Sun</button>
+      </div>
+
+      <!-- WEEK VIEW: 7-column card grid -->
+      <div class="wo-week" id="weekView">
+        <div class="wo-week-grid">
+
+          <!-- Monday -->
+          <div class="wo-day-card" data-col="0">
+            <div class="wo-day-label">Monday</div>
+            <div class="wo-section">
+              <div class="wo-section-title">Breakfast</div>
+              <div class="wo-section-body" contenteditable="true">Overnight oats<br>• Blueberries<br>• Chia seeds<br>• Honey</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Lunch</div>
+              <div class="wo-section-body" contenteditable="true">Lentil soup<br>• Side salad<br>• Sourdough</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Dinner</div>
+              <div class="wo-section-body" contenteditable="true">Chickpea & potato curry<br>• Basmati rice<br>• Naan</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Snacks</div>
+              <div class="wo-section-body" contenteditable="true">Apple + nut butter<br>• Protein shake</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Water</div>
+              <div class="wo-section-body" contenteditable="true">2.5L</div>
+            </div>
+          </div>
+
+          <!-- Tuesday -->
+          <div class="wo-day-card" data-col="1">
+            <div class="wo-day-label">Tuesday</div>
+            <div class="wo-section">
+              <div class="wo-section-title">Breakfast</div>
+              <div class="wo-section-body" contenteditable="true">Scrambled eggs<br>• Spinach<br>• Sourdough toast</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Lunch</div>
+              <div class="wo-section-body" contenteditable="true">Chickpea wrap<br>• Hummus<br>• Mixed veg</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Dinner</div>
+              <div class="wo-section-body" contenteditable="true">Mushroom risotto<br>• Rocket salad</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Snacks</div>
+              <div class="wo-section-body" contenteditable="true">Carrots + hummus<br>• Banana</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Water</div>
+              <div class="wo-section-body" contenteditable="true">2L</div>
+            </div>
+          </div>
+
+          <!-- Wednesday -->
+          <div class="wo-day-card" data-col="2">
+            <div class="wo-day-label">Wednesday</div>
+            <div class="wo-section">
+              <div class="wo-section-title">Breakfast</div>
+              <div class="wo-section-body" contenteditable="true">Smoothie<br>• Oats, banana<br>• Berries, protein</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Lunch</div>
+              <div class="wo-section-body" contenteditable="true">Quinoa bowl<br>• Roasted veg<br>• Tahini dressing</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Dinner</div>
+              <div class="wo-section-body" contenteditable="true">Chicken burrito bowl<br>• Salsa + guac<br>• Rice</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Snacks</div>
+              <div class="wo-section-body" contenteditable="true">Greek yoghurt<br>• Mixed berries</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Water</div>
+              <div class="wo-section-body" contenteditable="true">2.5L</div>
+            </div>
+          </div>
+
+          <!-- Thursday -->
+          <div class="wo-day-card" data-col="3">
+            <div class="wo-day-label">Thursday</div>
+            <div class="wo-section">
+              <div class="wo-section-title">Breakfast</div>
+              <div class="wo-section-body" contenteditable="true">Porridge<br>• Cinnamon<br>• Sliced apple<br>• Honey</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Lunch</div>
+              <div class="wo-section-body" contenteditable="true">Bean chilli<br>• Brown rice<br>• Sour cream</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Dinner</div>
+              <div class="wo-section-body" contenteditable="true">Stir-fry<br>• Tofu + mixed veg<br>• Noodles + soy</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Snacks</div>
+              <div class="wo-section-body" contenteditable="true">Rice cakes<br>• Almond butter</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Water</div>
+              <div class="wo-section-body" contenteditable="true">2L</div>
+            </div>
+          </div>
+
+          <!-- Friday -->
+          <div class="wo-day-card" data-col="4">
+            <div class="wo-day-label">Friday</div>
+            <div class="wo-section">
+              <div class="wo-section-title">Breakfast</div>
+              <div class="wo-section-body" contenteditable="true">Avocado toast<br>• Cherry tomatoes<br>• Poached egg</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Lunch</div>
+              <div class="wo-section-body" contenteditable="true">Leftover chilli<br>• Fresh greens</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Dinner</div>
+              <div class="wo-section-body" contenteditable="true">Baked salmon<br>• Roasted broccoli<br>• Sweet potato</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Snacks</div>
+              <div class="wo-section-body" contenteditable="true">Banana + dates<br>• Dark chocolate</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Water</div>
+              <div class="wo-section-body" contenteditable="true">2.5L</div>
+            </div>
+          </div>
+
+          <!-- Saturday -->
+          <div class="wo-day-card" data-col="5">
+            <div class="wo-day-label">Saturday</div>
+            <div class="wo-section">
+              <div class="wo-section-title">Breakfast</div>
+              <div class="wo-section-body" contenteditable="true">Granola<br>• Greek yoghurt<br>• Mixed berries</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Lunch</div>
+              <div class="wo-section-body" contenteditable="true">Tomato pasta<br>• Fresh basil<br>• Parmesan</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Dinner</div>
+              <div class="wo-section-body" contenteditable="true">Roast veg tray-bake<br>• Tahini drizzle<br>• Flatbread</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Snacks</div>
+              <div class="wo-section-body" contenteditable="true">Popcorn<br>• Fresh fruit</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Water</div>
+              <div class="wo-section-body" contenteditable="true">2L</div>
+            </div>
+          </div>
+
+          <!-- Sunday -->
+          <div class="wo-day-card" data-col="6">
+            <div class="wo-day-label">Sunday</div>
+            <div class="wo-section">
+              <div class="wo-section-title">Breakfast</div>
+              <div class="wo-section-body" contenteditable="true">Pancakes<br>• Fresh fruit<br>• Maple syrup</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Lunch</div>
+              <div class="wo-section-body" contenteditable="true">Miso ramen<br>• Mushrooms<br>• Greens + egg</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Dinner</div>
+              <div class="wo-section-body" contenteditable="true">Turkey meatballs<br>• Tomato sauce<br>• Spaghetti</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Snacks</div>
+              <div class="wo-section-body" contenteditable="true">Dark chocolate<br>• Herbal tea</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Water</div>
+              <div class="wo-section-body" contenteditable="true">2L</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Notes -->
+      <div class="wo-notes-grid">
+        <div class="wo-note-card">
           <h3>Notes</h3>
-          <textarea>Prep on Sunday:
-• Cook quinoa + rice
-• Make lentil soup (2 lunches)
-• Chop veg for stir-fry + tray-bake</textarea>
+          <div class="wo-note-body" contenteditable="true">
+            Prep on Sunday:<br>
+            • Cook quinoa + rice for the week<br>
+            • Make lentil soup (covers 2 lunches)<br>
+            • Chop veg for stir-fry + tray-bake<br>
+            • Batch cook bean chilli (Friday leftovers)
+          </div>
         </div>
-
-        <div class="mealplan-box">
-          <h3>Shopping list</h3>
-          <textarea>Veg:
-• Spinach • mushrooms • mixed stir-fry veg • rocket
-Fruit:
-• Bananas • apples • blueberries
-Staples:
-• Oats • quinoa • rice • noodles • chickpeas • lentils
-Extras:
-• Soy yoghurt • tofu • tahini • salsa</textarea>
+        <div class="wo-note-card">
+          <h3>Shopping List</h3>
+          <div class="wo-note-body" contenteditable="true">
+            Veg: spinach, mushrooms, broccoli, sweet potato, mixed stir-fry veg, rocket, tomatoes<br>
+            Fruit: bananas, apples, blueberries, mixed berries, dates<br>
+            Staples: oats, quinoa, rice, noodles, chickpeas, lentils, pasta<br>
+            Protein: chicken, salmon, tofu, eggs, turkey mince<br>
+            Extras: Greek yoghurt, tahini, hummus, salsa, nut butter
+          </div>
         </div>
       </div>
 
     </section>
 
     <script>
-      document.getElementById('clearPlanBtn').addEventListener('click', function () {
-        const inputs = document.querySelectorAll('.mealplan-wrap textarea');
-        inputs.forEach(t => t.value = '');
+      // View toggle
+      const toggleBtns = document.querySelectorAll('.wo-toggle-btn');
+      const weekView = document.getElementById('weekView');
+      const dayNav = document.getElementById('dayNav');
+      const dayCards = document.querySelectorAll('.wo-day-card');
+      const dayBtns = document.querySelectorAll('.wo-day-btn');
+
+      let currentView = 'week';
+      let currentDay = 0;
+
+      toggleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          toggleBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentView = btn.dataset.view;
+
+          if (currentView === 'week') {
+            weekView.classList.remove('wo-day-mode');
+            dayNav.classList.remove('visible');
+            dayCards.forEach(c => c.classList.remove('wo-hidden'));
+          } else {
+            weekView.classList.add('wo-day-mode');
+            dayNav.classList.add('visible');
+            showDay(currentDay);
+          }
+        });
+      });
+
+      dayBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          dayBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentDay = parseInt(btn.dataset.day);
+          showDay(currentDay);
+        });
+      });
+
+      function showDay(idx) {
+        dayCards.forEach(c => {
+          c.classList.toggle('wo-hidden', parseInt(c.dataset.col) !== idx);
+        });
+      }
+
+      // Clear
+      document.getElementById('clearPlanBtn').addEventListener('click', () => {
+        document.querySelectorAll('.wo-section-body, .wo-note-body').forEach(el => {
+          el.innerHTML = '';
+        });
       });
     </script>
 
@@ -155,6 +337,14 @@ Extras:
           <h4>Contact</h4>
           <a href="mailto:email@example.com">email</a>
           <a href="tel:+000000000">phone</a>
+        </div>
+        <div class="footer-col">
+          <h4>Content</h4>
+          <a href="blog.html">Blog</a>
+          <a href="meal-plan.html">Meal Plan</a>
+          <a href="workout.html">Workouts</a>
+          <a href="recipes.html">Recipes</a>
+          <a href="#">On Demand</a>
         </div>
         <div class="footer-col">
           <h4>Legal</h4>
