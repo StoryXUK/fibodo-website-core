@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Weekly Meal Plan — Minimal</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <div class="logo">LOGO</div>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#blog">Blog</a>
+      </nav>
+      <div class="auth-links">
+        <a class="login" href="/login">Sign Up</a>
+        <a class="login" href="/login">Login</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="mealplan-wrap">
+
+      <div class="mealplan-header">
+        <h1>Weekly Meal Plan</h1>
+        <p>Minimal, calm, and practical. Plan the week at a glance, keep notes, and build your shopping list as you go.</p>
+      </div>
+
+      <div class="mealplan-controls">
+        <div class="left">
+          <span class="mealplan-label">Week starting</span>
+          <input class="mealplan-input" type="date" />
+          <button class="mealplan-btn" onclick="window.print()">Print</button>
+        </div>
+
+        <div class="right">
+          <button class="mealplan-btn" type="button" id="clearPlanBtn">Clear plan</button>
+        </div>
+      </div>
+
+      <div class="mealplan-card">
+        <div class="mealplan-scroll">
+          <table class="mealplan-table" aria-label="Weekly meal plan table">
+            <thead>
+              <tr>
+                <th>Meal</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+                <th>Sun</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td class="meal-col">Breakfast</td>
+                <td><textarea class="mealplan-cell">Overnight oats • blueberries • chia</textarea></td>
+                <td><textarea class="mealplan-cell">Tofu scramble • spinach • sourdough</textarea></td>
+                <td><textarea class="mealplan-cell">Smoothie • oats • banana • berries</textarea></td>
+                <td><textarea class="mealplan-cell">Porridge • cinnamon • apple</textarea></td>
+                <td><textarea class="mealplan-cell">Avocado toast • cherry tomatoes</textarea></td>
+                <td><textarea class="mealplan-cell">Granola (nut-free) • soy yoghurt</textarea></td>
+                <td><textarea class="mealplan-cell">Pancakes • fruit • maple</textarea></td>
+              </tr>
+
+              <tr>
+                <td class="meal-col">Lunch</td>
+                <td><textarea class="mealplan-cell">Lentil soup • side salad</textarea></td>
+                <td><textarea class="mealplan-cell">Chickpea wrap • hummus • veg</textarea></td>
+                <td><textarea class="mealplan-cell">Quinoa bowl • roasted veg • tahini</textarea></td>
+                <td><textarea class="mealplan-cell">Bean chilli • rice</textarea></td>
+                <td><textarea class="mealplan-cell">Leftovers • greens</textarea></td>
+                <td><textarea class="mealplan-cell">Tomato pasta • basil</textarea></td>
+                <td><textarea class="mealplan-cell">Miso ramen • mushrooms • greens</textarea></td>
+              </tr>
+
+              <tr>
+                <td class="meal-col">Dinner</td>
+                <td><textarea class="mealplan-cell">Chickpea & potato curry • rice</textarea></td>
+                <td><textarea class="mealplan-cell">Mushroom risotto • rocket</textarea></td>
+                <td><textarea class="mealplan-cell">Vegan burrito • salsa • guac</textarea></td>
+                <td><textarea class="mealplan-cell">Stir-fry • tofu • veg • noodles</textarea></td>
+                <td><textarea class="mealplan-cell">Veg soup • crusty bread</textarea></td>
+                <td><textarea class="mealplan-cell">Roast veg tray-bake • tahini</textarea></td>
+                <td><textarea class="mealplan-cell">Homemade vegan doner • salad</textarea></td>
+              </tr>
+
+              <tr>
+                <td class="meal-col">Snacks</td>
+                <td><textarea class="mealplan-cell">Fruit • nut-free protein shake</textarea></td>
+                <td><textarea class="mealplan-cell">Carrots • hummus</textarea></td>
+                <td><textarea class="mealplan-cell">Apple • yoghurt</textarea></td>
+                <td><textarea class="mealplan-cell">Rice cakes • peanut-free spread</textarea></td>
+                <td><textarea class="mealplan-cell">Banana • dates</textarea></td>
+                <td><textarea class="mealplan-cell">Popcorn • berries</textarea></td>
+                <td><textarea class="mealplan-cell">Dark chocolate • fruit</textarea></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="mealplan-bottom">
+        <div class="mealplan-box">
+          <h3>Notes</h3>
+          <textarea>Prep on Sunday:
+• Cook quinoa + rice
+• Make lentil soup (2 lunches)
+• Chop veg for stir-fry + tray-bake</textarea>
+        </div>
+
+        <div class="mealplan-box">
+          <h3>Shopping list</h3>
+          <textarea>Veg:
+• Spinach • mushrooms • mixed stir-fry veg • rocket
+Fruit:
+• Bananas • apples • blueberries
+Staples:
+• Oats • quinoa • rice • noodles • chickpeas • lentils
+Extras:
+• Soy yoghurt • tofu • tahini • salsa</textarea>
+        </div>
+      </div>
+
+    </section>
+
+    <script>
+      document.getElementById('clearPlanBtn').addEventListener('click', function () {
+        const inputs = document.querySelectorAll('.mealplan-wrap textarea');
+        inputs.forEach(t => t.value = '');
+      });
+    </script>
+
+  </main>
+
+  <footer>
+    <div class="footer-container">
+
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:email@example.com">email</a>
+          <a href="tel:+000000000">phone</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Business Name. All rights reserved. Powered by <a target="_blank" href="https://fibodo.com/">fibodo</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+
+</html>

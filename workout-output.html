@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Weekly Workout Plan — Minimal</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <div class="logo">LOGO</div>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#blog">Blog</a>
+      </nav>
+      <div class="auth-links">
+        <a class="login" href="/login">Sign Up</a>
+        <a class="login" href="/login">Login</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="workout-wrap">
+
+      <div class="workout-header">
+        <h1>Weekly Workout Plan</h1>
+        <p>High-end and minimal. Plan the week at a glance, track intensity, and keep notes for progression.</p>
+      </div>
+
+      <div class="workout-controls">
+        <div class="left">
+          <span class="workout-label">Week starting</span>
+          <input class="workout-input" type="date" />
+          <button class="workout-btn" onclick="window.print()">Print</button>
+        </div>
+
+        <div class="right">
+          <button class="workout-btn" type="button" id="clearWorkoutBtn">Clear plan</button>
+        </div>
+      </div>
+
+      <div class="workout-card">
+        <div class="workout-scroll">
+          <table class="workout-table" aria-label="Weekly workout plan table">
+            <thead>
+              <tr>
+                <th>Section</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+                <th>Sun</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td class="workout-col">Main session</td>
+                <td><textarea class="workout-cell">Strength — Lower
+• Squat 4×6
+• RDL 3×8
+• Split squat 3×10</textarea></td>
+                <td><textarea class="workout-cell">Cardio — Zone 2
+• 35 mins steady
+• Nasal breathing</textarea></td>
+                <td><textarea class="workout-cell">Strength — Upper
+• Bench 4×6
+• Row 4×8
+• Press 3×10</textarea></td>
+                <td><textarea class="workout-cell">Mobility + Core
+• Hips 10 mins
+• T-spine 8 mins
+• Core 12 mins</textarea></td>
+                <td><textarea class="workout-cell">Conditioning
+• Intervals 12–18 mins
+• Easy cool-down</textarea></td>
+                <td><textarea class="workout-cell">Long walk / sport
+• 60–90 mins
+• Easy pace</textarea></td>
+                <td><textarea class="workout-cell">Recovery day
+• Light stretch
+• Optional yoga</textarea></td>
+              </tr>
+
+              <tr>
+                <td class="workout-col">Accessory / mobility</td>
+                <td><textarea class="workout-cell">Glutes + calves
+• Bridges 3×12
+• Calf raises 3×15</textarea></td>
+                <td><textarea class="workout-cell">Ankles + hips
+• 8 mins</textarea></td>
+                <td><textarea class="workout-cell">Shoulders
+• Face pulls 3×15
+• YTWs 2×10</textarea></td>
+                <td><textarea class="workout-cell">Core
+• Dead bug 3×10
+• Side plank 3×30s</textarea></td>
+                <td><textarea class="workout-cell">Hamstrings
+• Curls 3×12
+• Hip hinge patterning</textarea></td>
+                <td><textarea class="workout-cell">Soft tissue
+• 10 mins foam roll</textarea></td>
+                <td><textarea class="workout-cell">Breathing
+• 5 mins downshift</textarea></td>
+              </tr>
+
+              <tr>
+                <td class="workout-col">Cardio / steps</td>
+                <td><textarea class="workout-cell">8–10k steps</textarea></td>
+                <td><textarea class="workout-cell">7–9k steps</textarea></td>
+                <td><textarea class="workout-cell">8–10k steps</textarea></td>
+                <td><textarea class="workout-cell">10k steps</textarea></td>
+                <td><textarea class="workout-cell">8–10k steps</textarea></td>
+                <td><textarea class="workout-cell">12k steps</textarea></td>
+                <td><textarea class="workout-cell">6–8k steps</textarea></td>
+              </tr>
+
+              <tr>
+                <td class="workout-col">Recovery</td>
+                <td><textarea class="workout-cell">Protein + stretch
+• 10 mins</textarea></td>
+                <td><textarea class="workout-cell">Hydrate
+• Early night</textarea></td>
+                <td><textarea class="workout-cell">Walk + mobility
+• 10 mins</textarea></td>
+                <td><textarea class="workout-cell">Sauna / hot bath
+(optional)</textarea></td>
+                <td><textarea class="workout-cell">Full-body stretch
+• 12 mins</textarea></td>
+                <td><textarea class="workout-cell">Legs up wall
+• 8 mins</textarea></td>
+                <td><textarea class="workout-cell">Rest
+• No guilt</textarea></td>
+              </tr>
+
+              <tr>
+                <td class="workout-col">How it felt</td>
+                <td><textarea class="workout-cell">Effort: 7/10
+Energy: good
+Notes: hips tight</textarea></td>
+                <td><textarea class="workout-cell">Effort: 5/10
+Breathing: easy</textarea></td>
+                <td><textarea class="workout-cell">Effort: 8/10
+Shoulders: OK</textarea></td>
+                <td><textarea class="workout-cell">Effort: 4/10
+Looser after</textarea></td>
+                <td><textarea class="workout-cell">Effort: 8/10
+Intervals tough</textarea></td>
+                <td><textarea class="workout-cell">Effort: 5/10
+Mood: great</textarea></td>
+                <td><textarea class="workout-cell">Effort: 2/10
+Recovery: needed</textarea></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="workout-bottom">
+        <div class="workout-box">
+          <h3>Goals for this week</h3>
+          <textarea>• 3 strength sessions completed
+• 2 cardio sessions (Zone 2 + intervals)
+• Mobility daily (8–12 mins)
+• Average 9k steps/day</textarea>
+        </div>
+
+        <div class="workout-box">
+          <h3>Notes / injuries / reminders</h3>
+          <textarea>• Prioritise hip mobility before lower sessions
+• Add 2.5kg to squat if Monday feels strong
+• Keep intervals controlled — finish feeling capable
+• Sleep: aim for 7.5+ hours</textarea>
+        </div>
+      </div>
+
+    </section>
+
+    <script>
+      document.getElementById('clearWorkoutBtn').addEventListener('click', function () {
+        const inputs = document.querySelectorAll('.workout-wrap textarea');
+        inputs.forEach(t => t.value = '');
+      });
+    </script>
+
+  </main>
+
+  <footer>
+    <div class="footer-container">
+
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:email@example.com">email</a>
+          <a href="tel:+000000000">phone</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Business Name. All rights reserved. Powered by <a target="_blank" href="https://fibodo.com/">fibodo</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+
+</html>
