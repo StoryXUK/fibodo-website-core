@@ -13,8 +13,12 @@
     <div class="header-inner">
       <a class="brand" href="index.html">
         <div class="logo">LOGO</div>
-        
       </a>
+      <nav class="main-nav">
+        <a href="index.html#about">About</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#blog">Blog</a>
+      </nav>
       <div class="auth-links">
         <a class="login" href="/login">Sign Up</a>
         <a class="login" href="/login">Login</a>
@@ -24,21 +28,34 @@
 
   <main>
 
-    <section class="workout-wrap">
-
-      <div class="workout-header">
-        <h1>Weekly Exercise Plan</h1>
-        <p>Keep it simple: what you’re doing, when, and how it felt.</p>
+    <!-- Hero -->
+    <div class="hero-content">
+      <h1>Weekly Exercise Plan</h1>
+      <p class="description">
+        Track your sessions, log how you feel, and stay accountable week by week.
+      </p>
+      <div class="cta-buttons">
+        <a href="#planner" class="btn btn-secondary">Start Planning</a>
+        <a href="#" class="btn btn-secondary" onclick="window.print(); return false;">Print Plan</a>
+        <a href="#goals" class="btn btn-secondary">Weekly Goals</a>
       </div>
+    </div>
+
+    <!-- Banner -->
+    <section class="banner">
+      <img src="images/strength-conditioning.jpg" alt="Exercise planning">
+    </section>
+
+    <!-- Planner -->
+    <section class="workout-wrap" id="planner">
 
       <div class="workout-controls">
         <div class="left">
           <span class="workout-label">Week starting</span>
           <input class="workout-input" type="date" />
-          <button class="workout-btn" onclick="window.print()">Print</button>
         </div>
         <div class="right">
-          <button class="workout-btn" type="button" id="clearWorkoutBtn">Clear plan</button>
+          <button class="btn btn-secondary mealplan-action" type="button" id="clearWorkoutBtn">Clear Plan</button>
         </div>
       </div>
 
@@ -116,7 +133,7 @@
         </table>
       </div>
 
-      <div class="workout-bottom">
+      <div class="workout-bottom" id="goals">
         <div class="workout-box">
           <h3>Goals for this week</h3>
           <textarea placeholder="e.g. 3 strength sessions, 2 walks, mobility daily..."></textarea>
