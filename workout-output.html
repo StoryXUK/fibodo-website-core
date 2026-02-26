@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Weekly Workout Plan — Minimal</title>
+  <title>Weekly Workout Plan</title>
   <link rel="stylesheet" href="css/main.css">
 </head>
 
@@ -30,168 +30,299 @@
 
   <main>
 
-    <section class="workout-wrap">
+    <section class="wo-output">
 
-      <div class="workout-header">
+      <!-- Hero -->
+      <div class="hero-content">
         <h1>Weekly Workout Plan</h1>
-        <p>High-end and minimal. Plan the week at a glance, track intensity, and keep notes for progression.</p>
+        <p class="description">
+          Plan the week at a glance, track intensity, and keep notes for progression.
+        </p>
       </div>
 
-      <div class="workout-controls">
-        <div class="left">
-          <span class="workout-label">Week starting</span>
-          <input class="workout-input" type="date" />
-          <button class="workout-btn" onclick="window.print()">Print</button>
+      <!-- Controls -->
+      <div class="wo-controls">
+        <div class="wo-controls-left">
+          <span class="wo-label">Week starting</span>
+          <input class="wo-date" type="date" />
         </div>
-
-        <div class="right">
-          <button class="workout-btn" type="button" id="clearWorkoutBtn">Clear plan</button>
-        </div>
-      </div>
-
-      <div class="workout-card">
-        <div class="workout-scroll">
-          <table class="workout-table" aria-label="Weekly workout plan table">
-            <thead>
-              <tr>
-                <th>Section</th>
-                <th>Mon</th>
-                <th>Tue</th>
-                <th>Wed</th>
-                <th>Thu</th>
-                <th>Fri</th>
-                <th>Sat</th>
-                <th>Sun</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td class="workout-col">Main session</td>
-                <td><textarea class="workout-cell">Strength — Lower
-• Squat 4×6
-• RDL 3×8
-• Split squat 3×10</textarea></td>
-                <td><textarea class="workout-cell">Cardio — Zone 2
-• 35 mins steady
-• Nasal breathing</textarea></td>
-                <td><textarea class="workout-cell">Strength — Upper
-• Bench 4×6
-• Row 4×8
-• Press 3×10</textarea></td>
-                <td><textarea class="workout-cell">Mobility + Core
-• Hips 10 mins
-• T-spine 8 mins
-• Core 12 mins</textarea></td>
-                <td><textarea class="workout-cell">Conditioning
-• Intervals 12–18 mins
-• Easy cool-down</textarea></td>
-                <td><textarea class="workout-cell">Long walk / sport
-• 60–90 mins
-• Easy pace</textarea></td>
-                <td><textarea class="workout-cell">Recovery day
-• Light stretch
-• Optional yoga</textarea></td>
-              </tr>
-
-              <tr>
-                <td class="workout-col">Accessory / mobility</td>
-                <td><textarea class="workout-cell">Glutes + calves
-• Bridges 3×12
-• Calf raises 3×15</textarea></td>
-                <td><textarea class="workout-cell">Ankles + hips
-• 8 mins</textarea></td>
-                <td><textarea class="workout-cell">Shoulders
-• Face pulls 3×15
-• YTWs 2×10</textarea></td>
-                <td><textarea class="workout-cell">Core
-• Dead bug 3×10
-• Side plank 3×30s</textarea></td>
-                <td><textarea class="workout-cell">Hamstrings
-• Curls 3×12
-• Hip hinge patterning</textarea></td>
-                <td><textarea class="workout-cell">Soft tissue
-• 10 mins foam roll</textarea></td>
-                <td><textarea class="workout-cell">Breathing
-• 5 mins downshift</textarea></td>
-              </tr>
-
-              <tr>
-                <td class="workout-col">Cardio / steps</td>
-                <td><textarea class="workout-cell">8–10k steps</textarea></td>
-                <td><textarea class="workout-cell">7–9k steps</textarea></td>
-                <td><textarea class="workout-cell">8–10k steps</textarea></td>
-                <td><textarea class="workout-cell">10k steps</textarea></td>
-                <td><textarea class="workout-cell">8–10k steps</textarea></td>
-                <td><textarea class="workout-cell">12k steps</textarea></td>
-                <td><textarea class="workout-cell">6–8k steps</textarea></td>
-              </tr>
-
-              <tr>
-                <td class="workout-col">Recovery</td>
-                <td><textarea class="workout-cell">Protein + stretch
-• 10 mins</textarea></td>
-                <td><textarea class="workout-cell">Hydrate
-• Early night</textarea></td>
-                <td><textarea class="workout-cell">Walk + mobility
-• 10 mins</textarea></td>
-                <td><textarea class="workout-cell">Sauna / hot bath
-(optional)</textarea></td>
-                <td><textarea class="workout-cell">Full-body stretch
-• 12 mins</textarea></td>
-                <td><textarea class="workout-cell">Legs up wall
-• 8 mins</textarea></td>
-                <td><textarea class="workout-cell">Rest
-• No guilt</textarea></td>
-              </tr>
-
-              <tr>
-                <td class="workout-col">How it felt</td>
-                <td><textarea class="workout-cell">Effort: 7/10
-Energy: good
-Notes: hips tight</textarea></td>
-                <td><textarea class="workout-cell">Effort: 5/10
-Breathing: easy</textarea></td>
-                <td><textarea class="workout-cell">Effort: 8/10
-Shoulders: OK</textarea></td>
-                <td><textarea class="workout-cell">Effort: 4/10
-Looser after</textarea></td>
-                <td><textarea class="workout-cell">Effort: 8/10
-Intervals tough</textarea></td>
-                <td><textarea class="workout-cell">Effort: 5/10
-Mood: great</textarea></td>
-                <td><textarea class="workout-cell">Effort: 2/10
-Recovery: needed</textarea></td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="wo-controls-right">
+          <!-- View toggle -->
+          <div class="wo-toggle">
+            <button class="wo-toggle-btn active" data-view="week">Week</button>
+            <button class="wo-toggle-btn" data-view="day">Day</button>
+          </div>
+          <button class="btn btn-secondary wo-action-btn" onclick="window.print()">Print</button>
+          <button class="btn btn-secondary wo-action-btn" type="button" id="clearWorkoutBtn">Clear</button>
         </div>
       </div>
 
-      <div class="workout-bottom">
-        <div class="workout-box">
+      <!-- Day selector (visible in day view only) -->
+      <div class="wo-day-nav" id="dayNav">
+        <button class="wo-day-btn active" data-day="0">Mon</button>
+        <button class="wo-day-btn" data-day="1">Tue</button>
+        <button class="wo-day-btn" data-day="2">Wed</button>
+        <button class="wo-day-btn" data-day="3">Thu</button>
+        <button class="wo-day-btn" data-day="4">Fri</button>
+        <button class="wo-day-btn" data-day="5">Sat</button>
+        <button class="wo-day-btn" data-day="6">Sun</button>
+      </div>
+
+      <!-- WEEK VIEW: 7-column card grid -->
+      <div class="wo-week" id="weekView">
+        <div class="wo-week-grid">
+
+          <!-- Monday -->
+          <div class="wo-day-card" data-col="0">
+            <div class="wo-day-label">Monday</div>
+            <div class="wo-section">
+              <div class="wo-section-title">Main session</div>
+              <div class="wo-section-body" contenteditable="true">Strength — Lower<br>• Squat 4×6<br>• RDL 3×8<br>• Split squat 3×10</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Accessory / mobility</div>
+              <div class="wo-section-body" contenteditable="true">Glutes + calves<br>• Bridges 3×12<br>• Calf raises 3×15</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Cardio / steps</div>
+              <div class="wo-section-body" contenteditable="true">8–10k steps</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Recovery</div>
+              <div class="wo-section-body" contenteditable="true">Protein + stretch<br>• 10 mins</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">How it felt</div>
+              <div class="wo-section-body" contenteditable="true">Effort: 7/10<br>Energy: good<br>Notes: hips tight</div>
+            </div>
+          </div>
+
+          <!-- Tuesday -->
+          <div class="wo-day-card" data-col="1">
+            <div class="wo-day-label">Tuesday</div>
+            <div class="wo-section">
+              <div class="wo-section-title">Main session</div>
+              <div class="wo-section-body" contenteditable="true">Cardio — Zone 2<br>• 35 mins steady<br>• Nasal breathing</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Accessory / mobility</div>
+              <div class="wo-section-body" contenteditable="true">Ankles + hips<br>• 8 mins</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Cardio / steps</div>
+              <div class="wo-section-body" contenteditable="true">7–9k steps</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Recovery</div>
+              <div class="wo-section-body" contenteditable="true">Hydrate<br>• Early night</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">How it felt</div>
+              <div class="wo-section-body" contenteditable="true">Effort: 5/10<br>Breathing: easy</div>
+            </div>
+          </div>
+
+          <!-- Wednesday -->
+          <div class="wo-day-card" data-col="2">
+            <div class="wo-day-label">Wednesday</div>
+            <div class="wo-section">
+              <div class="wo-section-title">Main session</div>
+              <div class="wo-section-body" contenteditable="true">Strength — Upper<br>• Bench 4×6<br>• Row 4×8<br>• Press 3×10</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Accessory / mobility</div>
+              <div class="wo-section-body" contenteditable="true">Shoulders<br>• Face pulls 3×15<br>• YTWs 2×10</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Cardio / steps</div>
+              <div class="wo-section-body" contenteditable="true">8–10k steps</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Recovery</div>
+              <div class="wo-section-body" contenteditable="true">Walk + mobility<br>• 10 mins</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">How it felt</div>
+              <div class="wo-section-body" contenteditable="true">Effort: 8/10<br>Shoulders: OK</div>
+            </div>
+          </div>
+
+          <!-- Thursday -->
+          <div class="wo-day-card" data-col="3">
+            <div class="wo-day-label">Thursday</div>
+            <div class="wo-section">
+              <div class="wo-section-title">Main session</div>
+              <div class="wo-section-body" contenteditable="true">Mobility + Core<br>• Hips 10 mins<br>• T-spine 8 mins<br>• Core 12 mins</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Accessory / mobility</div>
+              <div class="wo-section-body" contenteditable="true">Core<br>• Dead bug 3×10<br>• Side plank 3×30s</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Cardio / steps</div>
+              <div class="wo-section-body" contenteditable="true">10k steps</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Recovery</div>
+              <div class="wo-section-body" contenteditable="true">Sauna / hot bath<br>(optional)</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">How it felt</div>
+              <div class="wo-section-body" contenteditable="true">Effort: 4/10<br>Looser after</div>
+            </div>
+          </div>
+
+          <!-- Friday -->
+          <div class="wo-day-card" data-col="4">
+            <div class="wo-day-label">Friday</div>
+            <div class="wo-section">
+              <div class="wo-section-title">Main session</div>
+              <div class="wo-section-body" contenteditable="true">Conditioning<br>• Intervals 12–18 mins<br>• Easy cool-down</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Accessory / mobility</div>
+              <div class="wo-section-body" contenteditable="true">Hamstrings<br>• Curls 3×12<br>• Hip hinge patterning</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Cardio / steps</div>
+              <div class="wo-section-body" contenteditable="true">8–10k steps</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Recovery</div>
+              <div class="wo-section-body" contenteditable="true">Full-body stretch<br>• 12 mins</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">How it felt</div>
+              <div class="wo-section-body" contenteditable="true">Effort: 8/10<br>Intervals tough</div>
+            </div>
+          </div>
+
+          <!-- Saturday -->
+          <div class="wo-day-card" data-col="5">
+            <div class="wo-day-label">Saturday</div>
+            <div class="wo-section">
+              <div class="wo-section-title">Main session</div>
+              <div class="wo-section-body" contenteditable="true">Long walk / sport<br>• 60–90 mins<br>• Easy pace</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Accessory / mobility</div>
+              <div class="wo-section-body" contenteditable="true">Soft tissue<br>• 10 mins foam roll</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Cardio / steps</div>
+              <div class="wo-section-body" contenteditable="true">12k steps</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Recovery</div>
+              <div class="wo-section-body" contenteditable="true">Legs up wall<br>• 8 mins</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">How it felt</div>
+              <div class="wo-section-body" contenteditable="true">Effort: 5/10<br>Mood: great</div>
+            </div>
+          </div>
+
+          <!-- Sunday -->
+          <div class="wo-day-card" data-col="6">
+            <div class="wo-day-label">Sunday</div>
+            <div class="wo-section">
+              <div class="wo-section-title">Main session</div>
+              <div class="wo-section-body" contenteditable="true">Recovery day<br>• Light stretch<br>• Optional yoga</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Accessory / mobility</div>
+              <div class="wo-section-body" contenteditable="true">Breathing<br>• 5 mins downshift</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Cardio / steps</div>
+              <div class="wo-section-body" contenteditable="true">6–8k steps</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">Recovery</div>
+              <div class="wo-section-body" contenteditable="true">Rest<br>• No guilt</div>
+            </div>
+            <div class="wo-section">
+              <div class="wo-section-title">How it felt</div>
+              <div class="wo-section-body" contenteditable="true">Effort: 2/10<br>Recovery: needed</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Notes -->
+      <div class="wo-notes-grid">
+        <div class="wo-note-card">
           <h3>Goals for this week</h3>
-          <textarea>• 3 strength sessions completed
-• 2 cardio sessions (Zone 2 + intervals)
-• Mobility daily (8–12 mins)
-• Average 9k steps/day</textarea>
+          <div class="wo-note-body" contenteditable="true">
+            • 3 strength sessions completed<br>
+            • 2 cardio sessions (Zone 2 + intervals)<br>
+            • Mobility daily (8–12 mins)<br>
+            • Average 9k steps/day
+          </div>
         </div>
-
-        <div class="workout-box">
+        <div class="wo-note-card">
           <h3>Notes / injuries / reminders</h3>
-          <textarea>• Prioritise hip mobility before lower sessions
-• Add 2.5kg to squat if Monday feels strong
-• Keep intervals controlled — finish feeling capable
-• Sleep: aim for 7.5+ hours</textarea>
+          <div class="wo-note-body" contenteditable="true">
+            • Prioritise hip mobility before lower sessions<br>
+            • Add 2.5kg to squat if Monday feels strong<br>
+            • Keep intervals controlled — finish feeling capable<br>
+            • Sleep: aim for 7.5+ hours
+          </div>
         </div>
       </div>
 
     </section>
 
     <script>
-      document.getElementById('clearWorkoutBtn').addEventListener('click', function () {
-        const inputs = document.querySelectorAll('.workout-wrap textarea');
-        inputs.forEach(t => t.value = '');
+      // View toggle
+      const toggleBtns = document.querySelectorAll('.wo-toggle-btn');
+      const weekView = document.getElementById('weekView');
+      const dayNav = document.getElementById('dayNav');
+      const dayCards = document.querySelectorAll('.wo-day-card');
+      const dayBtns = document.querySelectorAll('.wo-day-btn');
+
+      let currentView = 'week';
+      let currentDay = 0;
+
+      toggleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          toggleBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentView = btn.dataset.view;
+
+          if (currentView === 'week') {
+            weekView.classList.remove('wo-day-mode');
+            dayNav.classList.remove('visible');
+            dayCards.forEach(c => c.classList.remove('wo-hidden'));
+          } else {
+            weekView.classList.add('wo-day-mode');
+            dayNav.classList.add('visible');
+            showDay(currentDay);
+          }
+        });
+      });
+
+      dayBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          dayBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentDay = parseInt(btn.dataset.day);
+          showDay(currentDay);
+        });
+      });
+
+      function showDay(idx) {
+        dayCards.forEach(c => {
+          c.classList.toggle('wo-hidden', parseInt(c.dataset.col) !== idx);
+        });
+      }
+
+      // Clear
+      document.getElementById('clearWorkoutBtn').addEventListener('click', () => {
+        document.querySelectorAll('.wo-section-body, .wo-note-body').forEach(el => {
+          el.innerHTML = '';
+        });
       });
     </script>
 
@@ -205,6 +336,13 @@ Recovery: needed</textarea></td>
           <h4>Contact</h4>
           <a href="mailto:email@example.com">email</a>
           <a href="tel:+000000000">phone</a>
+        </div>
+        <div class="footer-col">
+          <h4>Content</h4>
+          <a href="blog.html">Blog</a>
+          <a href="meal-plan.html">Meal Plan</a>
+          <a href="workout.html">Workouts</a>
+          <a href="#">On Demand</a>
         </div>
         <div class="footer-col">
           <h4>Legal</h4>
