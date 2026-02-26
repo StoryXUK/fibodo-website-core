@@ -24,22 +24,35 @@
 
   <main>
 
-    <section class="mealplan-wrap">
-
-      <div class="mealplan-header">
-        <h1>Weekly Meal Plan</h1>
-        <p>Fill it in, keep it simple, and use the shopping list to stay on track.</p>
+    <!-- Hero -->
+    <div class="hero-content">
+      <h1>Weekly Meal Plan</h1>
+      <p class="description">
+        Plan your week, keep it simple, and stay on track with your nutrition goals.
+      </p>
+      <div class="cta-buttons">
+        <a href="#planner" class="btn btn-secondary">Start Planning</a>
+        <a href="#" class="btn btn-secondary" onclick="window.print(); return false;">Print Plan</a>
+        <a href="#shopping" class="btn btn-secondary">Shopping List</a>
       </div>
+    </div>
+
+    <!-- Banner -->
+    <section class="banner">
+      <img src="images/nutrition-habit-coaching.jpg" alt="Meal planning">
+    </section>
+
+    <!-- Planner -->
+    <section class="mealplan-wrap" id="planner">
 
       <div class="mealplan-controls">
         <div class="left">
           <span class="mealplan-label">Week starting</span>
           <input class="mealplan-input" type="date" />
-          <button class="mealplan-btn" onclick="window.print()">Print</button>
         </div>
 
         <div class="right">
-          <button class="mealplan-btn" type="button" id="clearPlanBtn">Clear plan</button>
+          <button class="btn btn-secondary mealplan-action" type="button" id="clearPlanBtn">Clear Plan</button>
         </div>
       </div>
 
@@ -102,18 +115,29 @@
               <td><textarea class="mealplan-cell"></textarea></td>
               <td><textarea class="mealplan-cell"></textarea></td>
             </tr>
+
+            <tr>
+              <td class="meal-col">Water</td>
+              <td><textarea class="mealplan-cell" placeholder="e.g. 2L"></textarea></td>
+              <td><textarea class="mealplan-cell"></textarea></td>
+              <td><textarea class="mealplan-cell"></textarea></td>
+              <td><textarea class="mealplan-cell"></textarea></td>
+              <td><textarea class="mealplan-cell"></textarea></td>
+              <td><textarea class="mealplan-cell"></textarea></td>
+              <td><textarea class="mealplan-cell"></textarea></td>
+            </tr>
           </tbody>
         </table>
       </div>
 
-      <div class="mealplan-bottom">
+      <div class="mealplan-bottom" id="shopping">
         <div class="mealplan-box">
           <h3>Notes</h3>
           <textarea placeholder="Prep ideas, goals, reminders..."></textarea>
         </div>
 
         <div class="mealplan-box">
-          <h3>Shopping list</h3>
+          <h3>Shopping List</h3>
           <textarea placeholder="Ingredients to buy..."></textarea>
         </div>
       </div>
@@ -121,7 +145,6 @@
     </section>
 
     <script>
-      // Simple clear button: clears all textareas in the plan area
       document.getElementById('clearPlanBtn').addEventListener('click', function () {
         const inputs = document.querySelectorAll('.mealplan-wrap textarea');
         inputs.forEach(t => t.value = '');
@@ -138,6 +161,13 @@
           <h4>Contact</h4>
           <a href="mailto:email@example.com">email</a>
           <a href="tel:+000000000">phone</a>
+        </div>
+        <div class="footer-col">
+          <h4>Content</h4>
+          <a href="blog.html">Blog</a>
+          <a href="#">Meal Plan</a>
+          <a href="#">Workouts</a>
+          <a href="#">On Demand</a>
         </div>
         <div class="footer-col">
           <h4>Legal</h4>
