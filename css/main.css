@@ -34,6 +34,10 @@
       --btn-text: #0f1117;
     }
 
+    [data-theme="dark"] .card-desc {
+      color: #b0b5bf;
+    }
+
     * {
       box-sizing: border-box;
     }
@@ -60,6 +64,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      position: relative;
     }
 
     .brand {
@@ -90,6 +95,8 @@
       display: flex;
       align-items: center;
       gap: 28px;
+      flex: 1;
+      justify-content: center;
     }
 
     .main-nav a {
@@ -109,23 +116,89 @@
       gap: 16px;
     }
 
-    /* Dark mode toggle */
-    .theme-toggle {
-      background: none;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 6px 10px;
+    /* ===== Sun/Moon icon toggle ===== */
+    .icon-toggle {
+      --w: 56px;
+      --h: 28px;
+      --pad: 3px;
+      --knob: 22px;
+      --shadow: 0 4px 12px rgba(0,0,0,.08);
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      display: inline-flex;
       cursor: pointer;
-      font-size: 18px;
-      line-height: 1;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      flex-shrink: 0;
+    }
+
+    .icon-toggle__input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .icon-toggle__track {
+      width: var(--w);
+      height: var(--h);
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      padding: var(--pad);
+      box-shadow: var(--shadow);
+      transition: background .2s ease, border-color .2s ease;
+      background: #2f3438;
+      border: 1px solid rgba(0,0,0,.12);
+    }
+
+    .icon-toggle__knob {
+      width: var(--knob);
+      height: var(--knob);
+      border-radius: 999px;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: background .15s ease;
+      position: relative;
+      transform: translateX(0);
+      transition: transform .22s ease;
+      background: #ffffff;
+      color: #111111;
     }
 
-    .theme-toggle:hover {
-      background: var(--hover);
+    .icon-toggle__icon {
+      width: 14px;
+      height: 14px;
+      position: absolute;
+      transition: opacity .15s ease;
+    }
+
+    /* Default (unchecked = light mode): sun visible */
+    .icon-toggle__icon--sun { opacity: 1; }
+    .icon-toggle__icon--moon { opacity: 0; }
+
+    /* Checked (dark mode): knob slides right, moon visible */
+    .icon-toggle__input:checked + .icon-toggle__track .icon-toggle__knob {
+      transform: translateX(calc(var(--w) - var(--knob) - (var(--pad) * 2)));
+    }
+    .icon-toggle__input:checked + .icon-toggle__track .icon-toggle__icon--sun { opacity: 0; }
+    .icon-toggle__input:checked + .icon-toggle__track .icon-toggle__icon--moon { opacity: 1; }
+
+    /* Dark mode: swap to light pill + dark knob */
+    [data-theme="dark"] .icon-toggle__track {
+      background: #ffffff;
+      border-color: #e5e7eb;
+    }
+    [data-theme="dark"] .icon-toggle__knob {
+      background: #000000;
+      color: #ffffff;
+    }
+
+    /* Focus ring */
+    .icon-toggle__input:focus-visible + .icon-toggle__track {
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(15,23,42,.10), var(--shadow);
     }
 
     /* Hamburger toggle — hidden on desktop */
@@ -227,6 +300,14 @@
 
       .main-nav .auth-links a:last-child {
         border-bottom: none;
+      }
+
+      .main-nav .icon-toggle {
+        position: fixed;
+        top: 18px;
+        right: 60px;
+        transform: none;
+        z-index: 110;
       }
     }
 
@@ -459,7 +540,7 @@
 
     .footer-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 60px;
       margin-bottom: 60px;
     }
@@ -482,6 +563,37 @@
 
     .footer-col a:hover {
       color: var(--footer-text);
+    }
+
+    /* Social icons */
+    .social-icons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      border: 1px solid var(--footer-border);
+      color: var(--footer-muted);
+      transition: color .2s ease, border-color .2s ease, background .2s ease;
+      margin-bottom: 0;
+    }
+
+    .social-icons a:hover {
+      color: var(--footer-text);
+      border-color: var(--footer-text);
+      background: rgba(255,255,255,.06);
+    }
+
+    .social-icons svg {
+      width: 18px;
+      height: 18px;
     }
 
     .footer-bottom {

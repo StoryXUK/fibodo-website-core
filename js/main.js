@@ -1,24 +1,21 @@
 /* ===== DARK MODE TOGGLE ===== */
 (function () {
-  var btn = document.getElementById("themeToggle");
-  if (!btn) return;
+  var checkbox = document.getElementById("themeToggleInput");
+  if (!checkbox) return;
 
   var stored = localStorage.getItem("theme");
   if (stored === "dark") {
     document.documentElement.setAttribute("data-theme", "dark");
-    btn.textContent = "\u263E"; // moon
+    checkbox.checked = true;
   }
 
-  btn.addEventListener("click", function () {
-    var isDark = document.documentElement.getAttribute("data-theme") === "dark";
-    if (isDark) {
-      document.documentElement.removeAttribute("data-theme");
-      localStorage.setItem("theme", "light");
-      btn.textContent = "\u2600\uFE0F"; // sun
-    } else {
+  checkbox.addEventListener("change", function () {
+    if (checkbox.checked) {
       document.documentElement.setAttribute("data-theme", "dark");
       localStorage.setItem("theme", "dark");
-      btn.textContent = "\u263E"; // moon
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+      localStorage.setItem("theme", "light");
     }
   });
 })();
