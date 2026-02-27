@@ -6,6 +6,32 @@
       --border: #e5e7eb;
       --hover: #f3f4f6;
       --max: 1800px;
+      --card: #ffffff;
+      --card-alt: #fafafa;
+      --surface: #f9fafb;
+      --footer-bg: #000000;
+      --footer-text: #ffffff;
+      --footer-muted: #9ca3af;
+      --footer-border: #222222;
+      --btn-bg: #000000;
+      --btn-text: #ffffff;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0f1117;
+      --text: #e4e4e7;
+      --muted: #9ca3af;
+      --border: #2a2d35;
+      --hover: #1c1f26;
+      --card: #181a20;
+      --card-alt: #1c1f26;
+      --surface: #14161b;
+      --footer-bg: #0a0b0e;
+      --footer-text: #e4e4e7;
+      --footer-muted: #6b7280;
+      --footer-border: #2a2d35;
+      --btn-bg: #ffffff;
+      --btn-text: #0f1117;
     }
 
     * {
@@ -25,6 +51,7 @@
     header {
       border-bottom: 1px solid var(--border);
       padding: 14px 40px;
+      background: var(--bg);
     }
 
     .header-inner {
@@ -51,7 +78,7 @@
       justify-content: center;
       font-size: 11px;
       color: var(--muted);
-      background: #fff;
+      background: var(--card);
     }
 
     .brand-name {
@@ -80,6 +107,25 @@
       display: flex;
       align-items: center;
       gap: 16px;
+    }
+
+    /* Dark mode toggle */
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .15s ease;
+    }
+
+    .theme-toggle:hover {
+      background: var(--hover);
     }
 
     /* Hamburger toggle — hidden on desktop */
@@ -140,7 +186,7 @@
         right: -280px;
         width: 280px;
         height: 100%;
-        background: #fff;
+        background: var(--bg);
         flex-direction: column;
         align-items: flex-start;
         padding: 80px 32px 32px;
@@ -161,12 +207,26 @@
         border-bottom: 1px solid var(--border);
       }
 
-      .auth-links {
-        display: none;
+      .main-nav .auth-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+        margin-top: 16px;
+        padding-top: 16px;
+        border-top: 2px solid var(--border);
       }
 
-      .main-nav.open ~ .auth-links {
-        display: none;
+      .main-nav .auth-links a {
+        font-size: 18px;
+        padding: 14px 0;
+        width: 100%;
+        border-bottom: 1px solid var(--border);
+        color: var(--text);
+      }
+
+      .main-nav .auth-links a:last-child {
+        border-bottom: none;
       }
     }
 
@@ -238,7 +298,7 @@
       height: 280px;
       border: 1px solid var(--border);
       border-radius: 14px;
-      background: #f9fafb;
+      background: var(--surface);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -282,9 +342,9 @@
 .card{
   border-radius:18px;
   overflow:hidden;
-  background:#ffffff;
+  background:var(--card);
   text-decoration:none;
-  color:#0f172a;
+  color:var(--text);
   transition:all .25s ease;
   box-shadow:0 8px 25px rgba(0,0,0,0.05);
   display:flex;
@@ -386,8 +446,8 @@
     /* ===== BLACK FOOTER ===== */
 
     footer {
-      background: #000000;
-      color: #ffffff;
+      background: var(--footer-bg);
+      color: var(--footer-text);
       margin-top: 120px;
       padding: 80px 40px 40px 40px;
     }
@@ -408,35 +468,35 @@
       font-size: 15px;
       font-weight: 600;
       margin-bottom: 20px;
-      color: #ffffff;
+      color: var(--footer-text);
     }
 
     .footer-col a {
       display: block;
       font-size: 14px;
-      color: #9ca3af;
+      color: var(--footer-muted);
       text-decoration: none;
       margin-bottom: 12px;
       transition: color .2s ease;
     }
 
     .footer-col a:hover {
-      color: #ffffff;
+      color: var(--footer-text);
     }
 
     .footer-bottom {
-      border-top: 1px solid #222;
+      border-top: 1px solid var(--footer-border);
       padding-top: 24px;
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 20px;
       font-size: 13px;
-      color: #9ca3af;
+      color: var(--footer-muted);
     }
 
     .footer-bottom a {
-      color: #ffffff;
+      color: var(--footer-text);
       text-decoration: none;
     }
 
@@ -489,14 +549,14 @@
 
     /* Secondary button */
     .btn-secondary {
-      background: #ffffff;
-      color: #000000;
-      border: 1px solid #e5e7eb;
+      background: var(--card);
+      color: var(--text);
+      border: 1px solid var(--border);
     }
 
     .btn-secondary:hover {
-      background: #323335;
-      color: #e5e7eb;
+      background: var(--btn-bg);
+      color: var(--btn-text);
     }
 
     /* Mobile stacking */
@@ -689,7 +749,7 @@
     .blog-body p {
       font-size: 18px;
       line-height: 1.8;
-      color: #374151;
+      color: var(--muted);
       margin: 0 0 20px 0;
     }
 
@@ -801,14 +861,14 @@
   border-radius: 10px;
   padding: 10px 12px;
   font-size: 14px;
-  background: #fff;
+  background: var(--card);
   color: var(--text);
   min-width: 220px;
 }
 
 .mealplan-btn{
   border: 1px solid var(--border);
-  background: #fff;
+  background: var(--card);
   color: var(--text);
   border-radius: 10px;
   padding: 10px 14px;
@@ -836,7 +896,7 @@
   border: 1px solid var(--border);
   border-radius: 16px;
   overflow: hidden;
-  background: #fff;
+  background: var(--card);
   box-shadow: 0 8px 25px rgba(0,0,0,0.05);
 }
 
@@ -852,22 +912,22 @@
 .mealplan-table td:last-child{ border-right: 0; }
 
 .mealplan-table thead th{
-  background: #f9fafb;
+  background: var(--surface);
   padding: 14px 12px;
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: .04em;
-  color: #374151;
+  color: var(--muted);
   font-weight: 600;
   text-align: left;
 }
 
 .mealplan-table .meal-col{
   width: 140px;
-  background: #fff;
+  background: var(--card);
   padding: 14px 12px;
   font-weight: 600;
-  color: #111827;
+  color: var(--text);
 }
 
 .mealplan-table td{
@@ -883,7 +943,7 @@
   resize: vertical;
   font-size: 14px;
   line-height: 1.5;
-  background: #fff;
+  background: var(--card);
   color: var(--text);
   outline: none;
 }
@@ -905,7 +965,7 @@
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 16px;
-  background: #fff;
+  background: var(--card);
   box-shadow: 0 8px 25px rgba(0,0,0,0.05);
 }
 
@@ -995,14 +1055,14 @@
   border-radius: 10px;
   padding: 10px 12px;
   font-size: 14px;
-  background: #fff;
+  background: var(--card);
   color: var(--text);
   min-width: 220px;
 }
 
 .workout-btn{
   border: 1px solid var(--border);
-  background: #fff;
+  background: var(--card);
   color: var(--text);
   border-radius: 10px;
   padding: 10px 14px;
@@ -1023,7 +1083,7 @@
   border: 1px solid var(--border);
   border-radius: 16px;
   overflow: hidden;
-  background: #fff;
+  background: var(--card);
   box-shadow: 0 8px 25px rgba(0,0,0,0.05);
 }
 
@@ -1039,22 +1099,22 @@
 .workout-table td:last-child{ border-right: 0; }
 
 .workout-table thead th{
-  background: #f9fafb;
+  background: var(--surface);
   padding: 14px 12px;
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: .04em;
-  color: #374151;
+  color: var(--muted);
   font-weight: 600;
   text-align: left;
 }
 
 .workout-table .workout-col{
   width: 170px;
-  background: #fff;
+  background: var(--card);
   padding: 14px 12px;
   font-weight: 600;
-  color: #111827;
+  color: var(--text);
 }
 
 .workout-table td{
@@ -1070,7 +1130,7 @@
   resize: vertical;
   font-size: 14px;
   line-height: 1.5;
-  background: #fff;
+  background: var(--card);
   color: var(--text);
   outline: none;
 }
@@ -1092,7 +1152,7 @@
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 16px;
-  background: #fff;
+  background: var(--card);
   box-shadow: 0 8px 25px rgba(0,0,0,0.05);
 }
 
@@ -1143,7 +1203,7 @@
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 28px;
-  background: #fafafa;
+  background: var(--card-alt);
 }
 
 .recipe-card h2 {
@@ -1163,7 +1223,7 @@
   line-height: 1.6;
   padding: 8px 0;
   border-bottom: 1px solid var(--border);
-  color: #374151;
+  color: var(--muted);
 }
 
 .recipe-list li:last-child {
@@ -1182,7 +1242,7 @@
   font-size: 16px;
   padding: 10px 0;
   border-bottom: 1px solid var(--border);
-  color: #374151;
+  color: var(--muted);
 }
 
 .recipe-nutrition li:last-child {
@@ -1202,7 +1262,7 @@
 .recipe-steps li {
   font-size: 18px;
   line-height: 1.8;
-  color: #374151;
+  color: var(--muted);
   margin-bottom: 16px;
   padding-left: 8px;
 }
@@ -1251,7 +1311,7 @@
   border-radius: 10px;
   padding: 10px 14px;
   font-size: 14px;
-  background: #fff;
+  background: var(--card);
   color: var(--text);
 }
 
@@ -1274,7 +1334,7 @@
   font-size: 14px;
   font-weight: 500;
   border: none;
-  background: #fff;
+  background: var(--card);
   color: var(--muted);
   cursor: pointer;
   transition: all .15s ease;
@@ -1303,7 +1363,7 @@
   font-weight: 500;
   border: 1px solid var(--border);
   border-radius: 10px;
-  background: #fff;
+  background: var(--card);
   color: var(--text);
   cursor: pointer;
   transition: all .15s ease;
@@ -1328,7 +1388,7 @@
 .wo-day-card {
   border: 1px solid var(--border);
   border-radius: 16px;
-  background: #fff;
+  background: var(--card);
   padding: 24px 20px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.04);
   transition: box-shadow .2s ease;
@@ -1379,12 +1439,12 @@
 }
 
 .wo-section-body:hover {
-  background: #fafafa;
+  background: var(--card-alt);
 }
 
 .wo-section-body:focus {
   border-color: var(--border);
-  background: #fff;
+  background: var(--card);
 }
 
 .wo-day-mode .wo-week-grid {
@@ -1407,7 +1467,7 @@
 .wo-note-card {
   border: 1px solid var(--border);
   border-radius: 16px;
-  background: #fff;
+  background: var(--card);
   padding: 24px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.04);
 }
@@ -1431,12 +1491,12 @@
 }
 
 .wo-note-body:hover {
-  background: #fafafa;
+  background: var(--card-alt);
 }
 
 .wo-note-body:focus {
   border-color: var(--border);
-  background: #fff;
+  background: var(--card);
 }
 
 @media (max-width: 1200px) {
@@ -1532,14 +1592,14 @@
       padding: 12px 14px;
       border: 1px solid var(--border);
       border-radius: 16px;
-      background: #fff;
+      background: var(--card);
       cursor: pointer;
       transition: transform .15s ease, background .15s ease, border-color .15s ease;
     }
     .tt-date:hover{ background: var(--hover); transform: translateY(-1px); }
     .tt-date.active{
       border-color: #cbd5e1;
-      background: #fafafa;
+      background: var(--card-alt);
     }
     .tt-date .tt-day{ font-size: 13px; color: var(--muted); }
     .tt-date .tt-num{ font-size: 18px; font-weight: 600; letter-spacing: -0.02em; }
@@ -1566,7 +1626,7 @@
       border-radius: 14px;
       padding: 10px 12px;
       font-size: 14px;
-      background: #fff;
+      background: var(--card);
       color: var(--text);
       outline: none;
       transition: box-shadow .15s ease, border-color .15s ease;
@@ -1586,7 +1646,7 @@
 
     .tt-btn{
       border: 1px solid var(--border);
-      background: #fff;
+      background: var(--card);
       color: var(--text);
       border-radius: 14px;
       padding: 10px 14px;
@@ -1637,7 +1697,7 @@
     .tt-item{
       border: 1px solid var(--border);
       border-radius: 18px;
-      background: #fff;
+      background: var(--card);
       box-shadow: 0 14px 40px rgba(0,0,0,0.06);
       overflow: hidden;
       display: grid;
@@ -1649,7 +1709,7 @@
     .tt-time{
       padding: 16px;
       border-right: 1px solid var(--border);
-      background: #fafafa;
+      background: var(--card-alt);
       display: grid;
       gap: 6px;
       align-content: start;
@@ -1694,7 +1754,7 @@
       font-size: 14px;
       line-height: 1.4;
     }
-    .tt-meta b{ color: #111827; font-weight: 600; }
+    .tt-meta b{ color: var(--text); font-weight: 600; }
 
     .tt-cta{
       padding: 16px;
@@ -1725,7 +1785,7 @@
     .tt-empty{
       border: 1px solid var(--border);
       border-radius: 18px;
-      background: #fff;
+      background: var(--card);
       padding: 18px;
       color: var(--muted);
       box-shadow: 0 14px 40px rgba(0,0,0,0.06);
