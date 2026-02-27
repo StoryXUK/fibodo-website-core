@@ -323,11 +323,36 @@
     <div class="header-inner">
       <a class="brand" href="index.html">
         <div class="logo">LOGO</div>
-        <div class="brand-name">Business Name</div>
       </a>
-      <div class="auth-links">
-        <a class="login" href="/login">Sign Up</a>
-        <a class="login" href="/login">Login</a>
+      <button class="nav-toggle" aria-label="Menu" id="navToggle">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-overlay" id="navOverlay"></div>
+        <nav class="main-nav" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="blog.html">Blog</a>
+        <a href="timetable.html">Timetable</a>
+        <div class="auth-links auth-links--mobile">
+          <a class="login" href="/login">Sign Up</a>
+          <a class="login" href="/login">Login</a>
+        </div>
+      </nav>
+      <div class="header-right">
+        <div class="auth-links">
+          <a class="login" href="/login">Sign Up</a>
+          <a class="login" href="/login">Login</a>
+        </div>
+        <label class="icon-toggle" id="themeToggle">
+          <input type="checkbox" class="icon-toggle__input" id="themeToggleInput" aria-label="Toggle dark mode">
+          <span class="icon-toggle__track">
+            <span class="icon-toggle__knob" aria-hidden="true">
+              <svg class="icon-toggle__icon icon-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="M4.93 4.93l1.41 1.41"></path><path d="M17.66 17.66l1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="M4.93 19.07l1.41-1.41"></path><path d="M17.66 6.34l1.41-1.41"></path></svg>
+              <svg class="icon-toggle__icon icon-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A8.5 8.5 0 0 1 11.2 3a7 7 0 1 0 9.8 9.8Z"></path></svg>
+            </span>
+          </span>
+        </label>
       </div>
     </div>
   </header>
@@ -344,6 +369,10 @@
           Keep it calm and confident — no hype, just clarity.
         </p>
       </div>
+
+      <section class="banner">
+      <img src="images/yoga.jpg" alt="Banner image">
+    </section>
 
       <div class="about-grid">
 
@@ -517,14 +546,22 @@
 
   </main>
 
-  <footer>
+ <footer>
     <div class="footer-container">
 
       <div class="footer-grid">
         <div class="footer-col">
           <h4>Contact</h4>
-          <a href="mailto:email@example.com">email</a>
-          <a href="tel:+000000000">phone</a>
+          <a href="#" id="openContactModal">Contact Form</a>
+         
+        </div>
+        <div class="footer-col">
+          <h4>Content</h4>
+          <a href="blog.html">Blog</a>
+          <a href="mealplan-output.html">Meal Plan</a>
+          <a href="workout-output.html">Workouts</a>
+          <a href="recipes.html">Recipes</a>
+          <a href="on-demand.html">On Demand</a>
         </div>
         <div class="footer-col">
           <h4>Legal</h4>
@@ -532,18 +569,107 @@
           <a href="#">Terms of Service</a>
           <a href="#">Cookies</a>
         </div>
+        <div class="footer-col footer-socials">
+          <h4>Socials</h4>
+          <div class="social-icons">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="5"></circle><circle cx="17.5" cy="6.5" r="1.5"></circle></svg></a>
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+            <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l6.5 8L4 20h2l5.5-6.8L16 20h4l-6.8-8.5L20 4h-2l-5.2 6.4L8 4H4z"></path></svg></a>
+            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
+            <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg></a>
+          </div>
+        </div>
       </div>
 
       <div class="footer-bottom">
         <div>
-          &copy; 2026 Business Name. All rights reserved. Powered by
-          <a target="_blank" href="https://fibodo.com/">fibodo</a>
+          © 2026 Business Name. All rights reserved. Powered by <a target="_blank" href="https://fibodo.com/">fibodo</a>
         </div>
+
+        
       </div>
 
     </div>
   </footer>
 
+<script src="js/main.js"></script>
+  <!-- Contact Modal -->
+  <div class="contact-modal-overlay" id="contactModalOverlay">
+    <div class="contact-modal">
+      <button class="contact-modal__close" id="contactModalClose" aria-label="Close">&times;</button>
+      <section class="contact-wrap">
+        <div class="contact-header">
+          <h2>Contact</h2>
+          <p>Tell us what you need and we'll get back to you.</p>
+        </div>
+        <div class="contact-shell">
+          <form class="contact-card" id="contactForm" method="post" action="/api/contact" novalidate>
+            <div class="contact-grid">
+              <div class="field">
+                <label class="label" for="cf-name">Full name</label>
+                <input class="input" id="cf-name" name="name" type="text" autocomplete="name" placeholder="Jane Smith" required>
+                <div class="error" data-error-for="name"></div>
+              </div>
+              <div class="field">
+                <label class="label" for="cf-email">Email</label>
+                <input class="input" id="cf-email" name="email" type="email" autocomplete="email" placeholder="jane@company.com" required>
+                <div class="error" data-error-for="email"></div>
+              </div>
+              <div class="field">
+                <label class="label" for="cf-phone">Phone <span class="cf-muted">(optional)</span></label>
+                <input class="input" id="cf-phone" name="phone" type="tel" autocomplete="tel" placeholder="+44 7..." inputmode="tel">
+              </div>
+              <div class="field">
+                <label class="label" for="cf-topic">Topic</label>
+                <select class="select" id="cf-topic" name="topic" required>
+                  <option value="" selected disabled>Select…</option>
+                  <option value="demo">Book a demo</option>
+                  <option value="support">Support</option>
+                  <option value="partnership">Partnerships</option>
+                  <option value="pricing">Pricing</option>
+                  <option value="other">Other</option>
+                </select>
+                <div class="error" data-error-for="topic"></div>
+              </div>
+              <div class="field field-full">
+                <label class="label" for="cf-message">Message</label>
+                <textarea class="textarea" id="cf-message" name="message" rows="5" placeholder="A few details helps us respond faster…" required></textarea>
+                <div class="error" data-error-for="message"></div>
+              </div>
+              <div class="hp-wrap" aria-hidden="true">
+                <label for="cf-company">Company</label>
+                <input id="cf-company" name="company" type="text" tabindex="-1" autocomplete="off">
+              </div>
+              <div class="field field-full">
+                <label class="check">
+                  <input type="checkbox" id="cf-consent" name="consent" required>
+                  <span>I agree to be contacted about this enquiry.</span>
+                </label>
+                <div class="error" data-error-for="consent"></div>
+                <p class="fineprint">We'll only use your details to respond. See our <a href="#" class="cf-link">Privacy Policy</a>.</p>
+              </div>
+              <div class="actions field-full">
+                <button class="btn btn-primary" type="submit" id="submitBtn">Send message</button>
+                <div class="cf-status" id="formStatus" role="status" aria-live="polite"></div>
+              </div>
+            </div>
+          </form>
+          <aside class="contact-side">
+            <div class="side-card">
+              <h3>Prefer email?</h3>
+              <p><a class="cf-link" href="mailto:hello@yourdomain.com">hello@yourdomain.com</a></p>
+              <div class="cf-divider"></div>
+              <h3>Call</h3>
+              <p><a class="cf-link" href="tel:+440000000000">+44 0000 000 000</a></p>
+              <div class="cf-divider"></div>
+              <h3>Response times</h3>
+              <p class="cf-muted">Typically within 1 business day.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </div>
+  </div>
 </body>
 
 </html>

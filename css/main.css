@@ -73,8 +73,8 @@
     }
 
     .logo {
-      width: 36px;
-      height: 36px;
+      width: 75px;
+      height: 75px;
       border: 1px solid var(--border);
       border-radius: 6px;
       display: flex;
