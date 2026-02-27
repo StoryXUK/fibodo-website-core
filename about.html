@@ -314,6 +314,22 @@
         box-shadow: none !important;
       }
     }
+
+    /* Dark mode overrides */
+    [data-theme="dark"] .cardx { background: var(--card); }
+    [data-theme="dark"] .cardx-head { background: var(--surface); }
+    [data-theme="dark"] .about-copy p { color: var(--muted); }
+    [data-theme="dark"] .about-quote { border-left-color: var(--text); color: var(--text); }
+    [data-theme="dark"] .cred-item { background: var(--card); }
+    [data-theme="dark"] .cred-title { color: var(--text); }
+    [data-theme="dark"] .tag { background: var(--card); color: var(--muted); }
+    [data-theme="dark"] .review { background: var(--card); }
+    [data-theme="dark"] .review-name { color: var(--text); }
+    [data-theme="dark"] .review-stars { color: var(--text); }
+    [data-theme="dark"] .review-text { color: var(--muted); }
+    [data-theme="dark"] .btnx { background: var(--card); }
+    [data-theme="dark"] .btnx.primary { background: var(--btn-bg); color: var(--btn-text); border-color: var(--btn-bg); }
+    [data-theme="dark"] .btnx.primary:hover { opacity: .9; background: var(--btn-bg); }
   </style>
 
 </head>
