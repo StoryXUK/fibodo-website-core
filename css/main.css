@@ -1943,11 +1943,12 @@
 
     /* Print */
     @media print{
-      header, footer, .tt-controls, .tt-link{ display:none !important; }
+      header, footer, .tt-controls, .tt-link, .about-cta{ display:none !important; }
       main{ margin:0; padding:0; max-width:none; }
-      .tt-item, .tt-empty{ box-shadow:none !important; }
+      .tt-item, .tt-empty, .cardx{ box-shadow:none !important; }
       .tt-wrap{ max-width:none; }
     }
+
 
 
 
