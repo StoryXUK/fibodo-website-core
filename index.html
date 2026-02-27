@@ -17,11 +17,16 @@
       <a class="brand" href="index.html">
         <div class="logo">LOGO</div>
       </a>
-      <button class="nav-toggle" aria-label="Menu" id="navToggle">
-          <span></span><span></span><span></span>
-        </button>
-        <div class="nav-overlay" id="navOverlay"></div>
-        <nav class="main-nav" id="mainNav">
+      <nav class="main-nav" id="mainNav">
+        <label class="icon-toggle" id="themeToggle">
+          <input type="checkbox" class="icon-toggle__input" id="themeToggleInput" aria-label="Toggle dark mode">
+          <span class="icon-toggle__track">
+            <span class="icon-toggle__knob" aria-hidden="true">
+              <svg class="icon-toggle__icon icon-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="M4.93 4.93l1.41 1.41"></path><path d="M17.66 17.66l1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="M4.93 19.07l1.41-1.41"></path><path d="M17.66 6.34l1.41-1.41"></path></svg>
+              <svg class="icon-toggle__icon icon-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A8.5 8.5 0 0 1 11.2 3a7 7 0 1 0 9.8 9.8Z"></path></svg>
+            </span>
+          </span>
+        </label>
         <a href="index.html">Home</a>
         <a href="#about">About</a>
         <a href="#services">Services</a>
@@ -37,16 +42,11 @@
           <a class="login" href="/login">Sign Up</a>
           <a class="login" href="/login">Login</a>
         </div>
-        <label class="icon-toggle" id="themeToggle">
-          <input type="checkbox" class="icon-toggle__input" id="themeToggleInput" aria-label="Toggle dark mode">
-          <span class="icon-toggle__track">
-            <span class="icon-toggle__knob" aria-hidden="true">
-              <svg class="icon-toggle__icon icon-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="M4.93 4.93l1.41 1.41"></path><path d="M17.66 17.66l1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="M4.93 19.07l1.41-1.41"></path><path d="M17.66 6.34l1.41-1.41"></path></svg>
-              <svg class="icon-toggle__icon icon-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A8.5 8.5 0 0 1 11.2 3a7 7 0 1 0 9.8 9.8Z"></path></svg>
-            </span>
-          </span>
-        </label>
       </div>
+      <button class="nav-toggle" aria-label="Menu" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-overlay" id="navOverlay"></div>
     </div>
   </header>
 
