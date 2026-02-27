@@ -221,8 +221,8 @@
       <div class="footer-grid">
         <div class="footer-col">
           <h4>Contact</h4>
-          <a href="mailto:email@example.com">email</a>
-          <a href="tel:+000000000">phone</a>
+          <a href="#" id="openContactModal">Contact Form</a>
+
         </div>
         <div class="footer-col">
           <h4>Content</h4>
@@ -260,6 +260,83 @@
   </footer>
 
 <script src="js/main.js"></script>
+  <!-- Contact Modal -->
+  <div class="contact-modal-overlay" id="contactModalOverlay">
+    <div class="contact-modal">
+      <button class="contact-modal__close" id="contactModalClose" aria-label="Close">&times;</button>
+      <section class="contact-wrap">
+        <div class="contact-header">
+          <h2>Contact</h2>
+          <p>Tell us what you need and we'll get back to you.</p>
+        </div>
+        <div class="contact-shell">
+          <form class="contact-card" id="contactForm" method="post" action="/api/contact" novalidate>
+            <div class="contact-grid">
+              <div class="field">
+                <label class="label" for="cf-name">Full name</label>
+                <input class="input" id="cf-name" name="name" type="text" autocomplete="name" placeholder="Jane Smith" required>
+                <div class="error" data-error-for="name"></div>
+              </div>
+              <div class="field">
+                <label class="label" for="cf-email">Email</label>
+                <input class="input" id="cf-email" name="email" type="email" autocomplete="email" placeholder="jane@company.com" required>
+                <div class="error" data-error-for="email"></div>
+              </div>
+              <div class="field">
+                <label class="label" for="cf-phone">Phone <span class="cf-muted">(optional)</span></label>
+                <input class="input" id="cf-phone" name="phone" type="tel" autocomplete="tel" placeholder="+44 7..." inputmode="tel">
+              </div>
+              <div class="field">
+                <label class="label" for="cf-topic">Topic</label>
+                <select class="select" id="cf-topic" name="topic" required>
+                  <option value="" selected disabled>Select…</option>
+                  <option value="demo">Book a demo</option>
+                  <option value="support">Support</option>
+                  <option value="partnership">Partnerships</option>
+                  <option value="pricing">Pricing</option>
+                  <option value="other">Other</option>
+                </select>
+                <div class="error" data-error-for="topic"></div>
+              </div>
+              <div class="field field-full">
+                <label class="label" for="cf-message">Message</label>
+                <textarea class="textarea" id="cf-message" name="message" rows="5" placeholder="A few details helps us respond faster…" required></textarea>
+                <div class="error" data-error-for="message"></div>
+              </div>
+              <div class="hp-wrap" aria-hidden="true">
+                <label for="cf-company">Company</label>
+                <input id="cf-company" name="company" type="text" tabindex="-1" autocomplete="off">
+              </div>
+              <div class="field field-full">
+                <label class="check">
+                  <input type="checkbox" id="cf-consent" name="consent" required>
+                  <span>I agree to be contacted about this enquiry.</span>
+                </label>
+                <div class="error" data-error-for="consent"></div>
+                <p class="fineprint">We'll only use your details to respond. See our <a href="#" class="cf-link">Privacy Policy</a>.</p>
+              </div>
+              <div class="actions field-full">
+                <button class="btn btn-primary" type="submit" id="submitBtn">Send message</button>
+                <div class="cf-status" id="formStatus" role="status" aria-live="polite"></div>
+              </div>
+            </div>
+          </form>
+          <aside class="contact-side">
+            <div class="side-card">
+              <h3>Prefer email?</h3>
+              <p><a class="cf-link" href="mailto:hello@yourdomain.com">hello@yourdomain.com</a></p>
+              <div class="cf-divider"></div>
+              <h3>Call</h3>
+              <p><a class="cf-link" href="tel:+440000000000">+44 0000 000 000</a></p>
+              <div class="cf-divider"></div>
+              <h3>Response times</h3>
+              <p class="cf-muted">Typically within 1 business day.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </div>
+  </div>
 </body>
 
 </html>
