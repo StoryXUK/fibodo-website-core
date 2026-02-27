@@ -130,6 +130,12 @@
       display: none !important;
     }
 
+    @media (min-width: 768px) {
+      .auth-links--mobile {
+        display: none !important;
+      }
+      }
+
     /* ===== Sun/Moon icon toggle ===== */
     .icon-toggle {
       --w: 56px;
