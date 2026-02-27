@@ -6,286 +6,7 @@
   <title>Timetable — Minimal</title>
   <link rel="stylesheet" href="css/main.css">
 
-  <style>
-    /* ===== TIMETABLE (HIGH-END, MINIMAL, ON BRAND) ===== */
 
-    .tt-wrap{ max-width: 1200px; margin: 0 auto; }
-
-    .tt-header{ text-align:center; margin: 0 0 28px 0; }
-    .tt-header h1{
-      font-size: 52px;
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      margin: 0 0 10px 0;
-    }
-    .tt-header p{
-      margin: 0 auto;
-      max-width: 820px;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.7;
-    }
-
-    /* Sticky controls */
-    .tt-controls{
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      padding: 14px 0;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 18px;
-    }
-
-    .tt-controls-inner{
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-
-    /* Date scroller */
-    .tt-dates{
-      display: flex;
-      gap: 10px;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: 6px;
-    }
-
-    .tt-date{
-      flex: 0 0 auto;
-      display: grid;
-      gap: 2px;
-      min-width: 138px;
-      padding: 12px 14px;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      background: #fff;
-      cursor: pointer;
-      transition: transform .15s ease, background .15s ease, border-color .15s ease;
-    }
-    .tt-date:hover{ background: var(--hover); transform: translateY(-1px); }
-    .tt-date.active{
-      border-color: #cbd5e1;
-      background: #fafafa;
-    }
-    .tt-date .tt-day{ font-size: 13px; color: var(--muted); }
-    .tt-date .tt-num{ font-size: 18px; font-weight: 600; letter-spacing: -0.02em; }
-    .tt-date .tt-short{ font-size: 12px; color: #475569; text-transform: uppercase; letter-spacing: .08em; }
-
-    /* Filters row */
-    .tt-filters{
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .tt-filters-left{
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .tt-input, .tt-select{
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 10px 12px;
-      font-size: 14px;
-      background: #fff;
-      color: var(--text);
-      outline: none;
-      transition: box-shadow .15s ease, border-color .15s ease;
-      min-height: 42px;
-    }
-    .tt-input:focus, .tt-select:focus{
-      border-color: #cbd5e1;
-      box-shadow: 0 0 0 5px rgba(15,23,42,.06);
-    }
-
-    .tt-actions{
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .tt-btn{
-      border: 1px solid var(--border);
-      background: #fff;
-      color: var(--text);
-      border-radius: 14px;
-      padding: 10px 14px;
-      font-size: 14px;
-      cursor: pointer;
-      transition: background .15s ease, transform .15s ease;
-      min-height: 42px;
-    }
-    .tt-btn:hover{ background: var(--hover); transform: translateY(-1px); }
-    .tt-btn.primary{
-      background: #000;
-      color: #fff;
-      border-color: #000;
-    }
-    .tt-btn.primary:hover{ background:#111; }
-
-    /* Content */
-    .tt-summary{
-      display:flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 12px;
-      margin: 18px 0 10px 0;
-      flex-wrap: wrap;
-    }
-    .tt-summary .left{
-      display:flex;
-      gap: 10px;
-      align-items: baseline;
-      flex-wrap: wrap;
-    }
-    .tt-summary h2{
-      margin: 0;
-      font-size: 20px;
-      letter-spacing: -0.02em;
-    }
-    .tt-count{
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .tt-list{
-      display: grid;
-      gap: 12px;
-      margin-top: 10px;
-    }
-
-    .tt-item{
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      background: #fff;
-      box-shadow: 0 14px 40px rgba(0,0,0,0.06);
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: 140px 1fr auto;
-      gap: 0;
-      align-items: stretch;
-    }
-
-    .tt-time{
-      padding: 16px;
-      border-right: 1px solid var(--border);
-      background: #fafafa;
-      display: grid;
-      gap: 6px;
-      align-content: start;
-    }
-    .tt-time strong{
-      font-size: 16px;
-      letter-spacing: -0.02em;
-    }
-    .tt-time span{
-      font-size: 12px;
-      color: #64748b;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-    }
-
-    .tt-body{
-      padding: 16px 18px;
-      display: grid;
-      gap: 8px;
-      align-content: start;
-    }
-    .tt-badge{
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      color: #475569;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-    }
-    .tt-title{
-      font-size: 18px;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      margin: 0;
-    }
-    .tt-meta{
-      display:flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.4;
-    }
-    .tt-meta b{ color: #111827; font-weight: 600; }
-
-    .tt-cta{
-      padding: 16px;
-      border-left: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 170px;
-    }
-    .tt-link{
-      width: 100%;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-      background: #000;
-      color: #fff;
-      transition: transform .15s ease, background .15s ease;
-      text-align: center;
-    }
-    .tt-link:hover{ background:#111; transform: translateY(-1px); }
-
-    .tt-empty{
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      background: #fff;
-      padding: 18px;
-      color: var(--muted);
-      box-shadow: 0 14px 40px rgba(0,0,0,0.06);
-    }
-
-    /* Mobile */
-    @media (max-width: 920px){
-      .tt-item{
-        grid-template-columns: 1fr;
-      }
-      .tt-time{
-        border-right: 0;
-        border-bottom: 1px solid var(--border);
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
-      }
-      .tt-cta{
-        border-left: 0;
-        border-top: 1px solid var(--border);
-        min-width: 0;
-      }
-    }
-
-    /* Print */
-    @media print{
-      header, footer, .tt-controls, .tt-link{ display:none !important; }
-      main{ margin:0; padding:0; max-width:none; }
-      .tt-item, .tt-empty{ box-shadow:none !important; }
-      .tt-wrap{ max-width:none; }
-    }
-  </style>
 </head>
 
 <body>
@@ -295,8 +16,17 @@
     <div class="header-inner">
       <a class="brand" href="index.html">
         <div class="logo">LOGO</div>
-        <div class="brand-name">Business Name</div>
+  
       </a>
+
+<nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#blog">Blog</a>
+        <a href="timetable.html">Timetable</a>
+      </nav>
+
       <div class="auth-links">
         <a class="login" href="/login">Sign Up</a>
         <a class="login" href="/login">Login</a>
@@ -350,16 +80,28 @@
       <div class="tt-list" id="ttList"></div>
 
     </section>
+  
+
+  <script src='https://cdn.jotfor.ms/agent/embedjs/01950473f8497d4fb986378cc3dd8a5ef567/embed.js'>
+</script>
   </main>
 
-  <!-- Reuse your existing footer -->
   <footer>
     <div class="footer-container">
+
       <div class="footer-grid">
         <div class="footer-col">
           <h4>Contact</h4>
           <a href="mailto:email@example.com">email</a>
           <a href="tel:+000000000">phone</a>
+        </div>
+        <div class="footer-col">
+          <h4>Content</h4>
+          <a href="blog.html">Blog</a>
+          <a href="mealplan-output.html">Meal Plan</a>
+          <a href="workout-output.html">Workouts</a>
+          <a href="recipes.html">Recipes</a>
+          <a href="#">On Demand</a>
         </div>
         <div class="footer-col">
           <h4>Legal</h4>
@@ -368,14 +110,19 @@
           <a href="#">Cookies</a>
         </div>
       </div>
+
       <div class="footer-bottom">
         <div>
-          &copy; 2026 Business Name. All rights reserved. Powered by
-          <a target="_blank" href="https://fibodo.com/">fibodo</a>
+          © 2026 Business Name. All rights reserved. Powered by <a target="_blank" href="https://fibodo.com/">fibodo</a>
         </div>
+
+        
       </div>
+
     </div>
   </footer>
+
+
 
   <script>
     /**
