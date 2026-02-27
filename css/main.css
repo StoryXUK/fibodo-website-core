@@ -82,6 +82,94 @@
       gap: 16px;
     }
 
+    /* Hamburger toggle — hidden on desktop */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      flex-direction: column;
+      gap: 5px;
+      z-index: 110;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all .25s ease;
+    }
+
+    .nav-toggle.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Overlay */
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 90;
+    }
+
+    .nav-overlay.visible {
+      display: block;
+    }
+
+    /* Tablet and below */
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: flex;
+      }
+
+      .main-nav {
+        position: fixed;
+        top: 0;
+        right: -280px;
+        width: 280px;
+        height: 100%;
+        background: #fff;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 80px 32px 32px;
+        gap: 0;
+        z-index: 100;
+        box-shadow: -4px 0 20px rgba(0,0,0,0.08);
+        transition: right .3s ease;
+      }
+
+      .main-nav.open {
+        right: 0;
+      }
+
+      .main-nav a {
+        font-size: 18px;
+        padding: 14px 0;
+        width: 100%;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .auth-links {
+        display: none;
+      }
+
+      .main-nav.open ~ .auth-links {
+        display: none;
+      }
+    }
+
     .login {
       font-size: 15px;
       color: var(--muted);

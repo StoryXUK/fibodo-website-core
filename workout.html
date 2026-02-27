@@ -14,7 +14,11 @@
       <a class="brand" href="index.html">
         <div class="logo">LOGO</div>
       </a>
-      <nav class="main-nav">
+      <button class="nav-toggle" aria-label="Menu" id="navToggle">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-overlay" id="navOverlay"></div>
+        <nav class="main-nav" id="mainNav">
         <a href="index.html">Home</a>
         <a href="index.html#about">About</a>
         <a href="index.html#services">Services</a>
@@ -149,12 +153,6 @@
 
     </section>
 
-    <script>
-      document.getElementById('clearWorkoutBtn').addEventListener('click', function () {
-        const inputs = document.querySelectorAll('.workout-wrap textarea');
-        inputs.forEach(t => t.value = '');
-      });
-    </script>
 
   </main>
 
@@ -193,5 +191,6 @@
     </div>
   </footer>
 
+<script src="js/main.js"></script>
 </body>
 </html>

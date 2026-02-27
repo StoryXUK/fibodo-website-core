@@ -15,7 +15,11 @@
       <a class="brand" href="index.html">
         <div class="logo">LOGO</div>
       </a>
-      <nav class="main-nav">
+      <button class="nav-toggle" aria-label="Menu" id="navToggle">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-overlay" id="navOverlay"></div>
+        <nav class="main-nav" id="mainNav">
         <a href="index.html">Home</a>
         <a href="index.html#about">About</a>
         <a href="index.html#services">Services</a>
@@ -275,57 +279,6 @@
 
     </section>
 
-    <script>
-      // View toggle
-      const toggleBtns = document.querySelectorAll('.wo-toggle-btn');
-      const weekView = document.getElementById('weekView');
-      const dayNav = document.getElementById('dayNav');
-      const dayCards = document.querySelectorAll('.wo-day-card');
-      const dayBtns = document.querySelectorAll('.wo-day-btn');
-
-      let currentView = 'week';
-      let currentDay = 0;
-
-      toggleBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          toggleBtns.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          currentView = btn.dataset.view;
-
-          if (currentView === 'week') {
-            weekView.classList.remove('wo-day-mode');
-            dayNav.classList.remove('visible');
-            dayCards.forEach(c => c.classList.remove('wo-hidden'));
-          } else {
-            weekView.classList.add('wo-day-mode');
-            dayNav.classList.add('visible');
-            showDay(currentDay);
-          }
-        });
-      });
-
-      dayBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          dayBtns.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          currentDay = parseInt(btn.dataset.day);
-          showDay(currentDay);
-        });
-      });
-
-      function showDay(idx) {
-        dayCards.forEach(c => {
-          c.classList.toggle('wo-hidden', parseInt(c.dataset.col) !== idx);
-        });
-      }
-
-      // Clear
-      document.getElementById('clearWorkoutBtn').addEventListener('click', () => {
-        document.querySelectorAll('.wo-section-body, .wo-note-body').forEach(el => {
-          el.innerHTML = '';
-        });
-      });
-    </script>
 
   </main>
 
@@ -363,6 +316,7 @@
     </div>
   </footer>
 
+<script src="js/main.js"></script>
 </body>
 
 </html>
