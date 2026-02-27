@@ -343,3 +343,111 @@
   render();
 })();
 
+/* ===== CONTACT MODAL ===== */
+(function () {
+  var overlay = document.getElementById("contactModalOverlay");
+  var closeBtn = document.getElementById("contactModalClose");
+  var trigger = document.getElementById("openContactModal");
+  if (!overlay) return;
+
+  function openModal(e) {
+    if (e) e.preventDefault();
+    overlay.classList.add("visible");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal() {
+    overlay.classList.remove("visible");
+    document.body.style.overflow = "";
+  }
+
+  if (trigger) trigger.addEventListener("click", openModal);
+  if (closeBtn) closeBtn.addEventListener("click", closeModal);
+
+  overlay.addEventListener("click", function (e) {
+    if (e.target === overlay) closeModal();
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && overlay.classList.contains("visible")) closeModal();
+  });
+
+  var form = document.getElementById("contactForm");
+  var statusEl = document.getElementById("formStatus");
+  var submitBtn = document.getElementById("submitBtn");
+  if (!form) return;
+
+  function setError(name, msg) {
+    var field = form.querySelector('[name="' + name + '"]');
+    var err = form.querySelector('[data-error-for="' + name + '"]');
+    if (field) field.classList.toggle("invalid", !!msg);
+    if (err) err.textContent = msg || "";
+  }
+
+  function clearErrors() {
+    ["name", "email", "topic", "message", "consent"].forEach(function (k) {
+      setError(k, "");
+    });
+    if (statusEl) statusEl.textContent = "";
+  }
+
+  function validate() {
+    clearErrors();
+    var data = new FormData(form);
+    if ((data.get("company") || "").trim()) return { ok: false, silent: true };
+
+    var name = (data.get("name") || "").trim();
+    var email = (data.get("email") || "").trim();
+    var topic = (data.get("topic") || "").trim();
+    var message = (data.get("message") || "").trim();
+    var consent = data.get("consent");
+    var ok = true;
+
+    if (!name) { setError("name", "Please enter your name."); ok = false; }
+    if (!email) { setError("email", "Please enter your email."); ok = false; }
+    else if (!/^\S+@\S+\.\S+$/.test(email)) { setError("email", "Please enter a valid email."); ok = false; }
+    if (!topic) { setError("topic", "Please choose a topic."); ok = false; }
+    if (!message) { setError("message", "Please write a message."); ok = false; }
+    if (!consent) { setError("consent", "Please confirm consent."); ok = false; }
+
+    return { ok: ok, silent: false };
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var v = validate();
+    if (!v.ok) {
+      if (!v.silent && statusEl) statusEl.textContent = "Please fix the highlighted fields.";
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending\u2026";
+    if (statusEl) statusEl.textContent = "Sending your message\u2026";
+
+    var payload = {};
+    new FormData(form).forEach(function (val, key) { payload[key] = val; });
+    delete payload.company;
+
+    fetch(form.action, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    })
+      .then(function (res) {
+        if (!res.ok) throw new Error("Request failed");
+        if (statusEl) statusEl.textContent = "Thanks \u2014 your message has been sent.";
+        form.reset();
+        clearErrors();
+      })
+      .catch(function () {
+        if (statusEl) statusEl.textContent = "Sorry \u2014 something went wrong. Please try again or email us.";
+      })
+      .finally(function () {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send message";
+      });
+  });
+})();
+
+
