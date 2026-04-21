@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>fibodo — Book Now</title>
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/modal.css">
+
+  <style>
+    :root {
+      --portal-bg: #efefef;
+      --card-bg: #ffffff;
+      --text-main: #1a1a1a;
+      --text-soft: #4b4b4b;
+      --border-soft: #d7d7d7;
+      --brand-blue: #1f78be;
+      --brand-blue-hover: #1768a7;
+      --radius-lg: 12px;
+      --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.06);
+      --container-width: 1960px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--portal-bg);
+      color: var(--text-main);
+      font-family: inherit;
+    }
+
+    .portal-page {
+      min-height: 100vh;
+      padding: 28px 26px 60px;
+    }
+
+    .portal-shell {
+      max-width: var(--container-width);
+      margin: 0 auto;
+    }
+
+    .portal-header {
+      margin-bottom: 26px;
+    }
+
+    .portal-title {
+      margin: 0;
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      font-weight: 700;
+    }
+
+    .portal-subtitle {
+      margin: 10px 0 0;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text-soft);
+      max-width: 760px;
+    }
+
+    .portal-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 40px 36px;
+      align-items: start;
+    }
+
+    .portal-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .portal-card-media {
+      display: block;
+      aspect-ratio: 16 / 9.5;
+      overflow: hidden;
+      background: #d9d9d9;
+    }
+
+    .portal-card-media img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .portal-card-body {
+      padding: 20px 20px 18px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .portal-card-title {
+      margin: 0 0 14px;
+      font-size: clamp(1.7rem, 1.8vw, 2.05rem);
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      font-weight: 500;
+    }
+
+    .portal-card-desc {
+      margin: 0 0 24px;
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--text-main);
+      min-height: 112px;
+    }
+
+    .portal-card-actions {
+      margin-top: auto;
+    }
+
+    .portal-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 64px;
+      padding: 0 18px;
+      border-radius: 8px;
+      background: var(--brand-blue);
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.15rem;
+      font-weight: 700;
+      transition: background 0.2s ease;
+    }
+
+    .portal-btn:hover {
+      background: var(--brand-blue-hover);
+    }
+
+    .portal-btn:focus-visible {
+      outline: 3px solid rgba(31, 120, 190, 0.25);
+      outline-offset: 2px;
+    }
+
+    @media (max-width: 1400px) {
+      .portal-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .portal-page {
+        padding: 22px 18px 40px;
+      }
+
+      .portal-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .portal-card-title {
+        font-size: 1.9rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .portal-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .portal-card-title {
+        font-size: 1.7rem;
+      }
+
+      .portal-card-desc {
+        min-height: auto;
+      }
+
+      .portal-btn {
+        min-height: 56px;
+        font-size: 1.05rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="site-header"></div>
+
+  <main class="portal-page">
+    <div class="portal-shell">
+
+      <header class="portal-header">
+        <h1 class="portal-title">Book Now</h1>
+        <p class="portal-subtitle">
+          Browse all available activities, courses and sessions. Choose a category below to explore
+          what is available and continue to booking.
+        </p>
+      </header>
+
+      <section class="portal-grid">
+
+        <article class="portal-card">
+          <a href="outdoor-stadium-activities.html" class="portal-card-media">
+            <img src="images/outdoor-stadium.jpg" alt="Outdoor and stadium activities">
+          </a>
+          <div class="portal-card-body">
+            <h2 class="portal-card-title">Outdoor And Stadium Activities</h2>
+            <p class="portal-card-desc">
+              See below to find out what outdoor and stadium activities we offer at each of our centres, including…
+            </p>
+            <div class="portal-card-actions">
+              <a href="outdoor-stadium-activities.html" class="portal-btn">See all</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="portal-card">
+          <a href="swimming.html" class="portal-card-media">
+            <img src="images/swimming.jpg" alt="Swimming">
+          </a>
+          <div class="portal-card-body">
+            <h2 class="portal-card-title">Swimming</h2>
+            <p class="portal-card-desc">
+              Members and pay as you go users can attend any public or lane swim session without booking. Pool-base…
+            </p>
+            <div class="portal-card-actions">
+              <a href="swimming.html" class="portal-btn">See all</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="portal-card">
+          <a href="all-activities.html" class="portal-card-media">
+            <img src="images/all-activities.jpg" alt="All activities">
+          </a>
+          <div class="portal-card-body">
+            <h2 class="portal-card-title">All Activities</h2>
+            <p class="portal-card-desc">
+              All activities must be booked in advance. You can do this by logging into your account.
+            </p>
+            <div class="portal-card-actions">
+              <a href="all-activities.html" class="portal-btn">See all</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="portal-card">
+          <a href="courses-coaching.html" class="portal-card-media">
+            <img src="images/courses-coaching.jpg" alt="Courses and coaching programmes">
+          </a>
+          <div class="portal-card-body">
+            <h2 class="portal-card-title">Courses / Coaching Programmes</h2>
+            <p class="portal-card-desc">
+              Book a course or coaching programme which suits you!
+            </p>
+            <div class="portal-card-actions">
+              <a href="courses-coaching.html" class="portal-btn">See all</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="portal-card">
+          <a href="gym-sessions.html" class="portal-card-media">
+            <img src="images/gym-sessions.jpg" alt="Gym sessions">
+          </a>
+          <div class="portal-card-body">
+            <h2 class="portal-card-title">Gym Sessions</h2>
+            <p class="portal-card-desc">
+              All customers can book an optional Gym Induction before their first gym visit. Inductions can be booked in…
+            </p>
+            <div class="portal-card-actions">
+              <a href="gym-sessions.html" class="portal-btn">See all</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="portal-card">
+          <a href="payg-indoor-activities.html" class="portal-card-media">
+            <img src="images/payg-indoor.jpg" alt="Indoor activities">
+          </a>
+          <div class="portal-card-body">
+            <h2 class="portal-card-title">PAYG Indoor Activities</h2>
+            <p class="portal-card-desc">
+              Choose from a range of indoor sports to pay as you go
+            </p>
+            <div class="portal-card-actions">
+              <a href="payg-indoor-activities.html" class="portal-btn">See all</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="portal-card">
+          <a href="payg-racket-sports.html" class="portal-card-media">
+            <img src="images/payg-racket.jpg" alt="Racket sports">
+          </a>
+          <div class="portal-card-body">
+            <h2 class="portal-card-title">PAYG Racket Sports</h2>
+            <p class="portal-card-desc">
+              Choose from a range of racket sports to pay as you go
+            </p>
+            <div class="portal-card-actions">
+              <a href="payg-racket-sports.html" class="portal-btn">See all</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="portal-card">
+          <a href="payg-exercise-classes.html" class="portal-card-media">
+            <img src="images/payg-exercise.jpg" alt="Exercise classes">
+          </a>
+          <div class="portal-card-body">
+            <h2 class="portal-card-title">PAYG Exercise Classes</h2>
+            <p class="portal-card-desc">
+              Choose from a selection of exercise classes to pay as you go
+            </p>
+            <div class="portal-card-actions">
+              <a href="payg-exercise-classes.html" class="portal-btn">See all</a>
+            </div>
+          </div>
+        </article>
+
+      </section>
+    </div>
+  </main>
+
+  <script src="javascript/main.js"></script>
+</body>
+</html>
