@@ -331,6 +331,31 @@
     </div>
   </footer>
 
+  <div class="login-modal" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginModalTitle"
+    aria-hidden="true">
+    <div class="login-modal__backdrop" aria-hidden="true"></div>
+    <div class="login-modal__dialog">
+      <div class="login-modal__header">
+        <p class="login-modal__eyebrow">Member access</p>
+        <h2 id="loginModalTitle">Log in to continue</h2>
+        <p>Enter your details to access bookings, memberships, vouchers, and on demand content.</p>
+      </div>
+      <form class="login-modal__form" action="/login" method="post">
+        <label for="loginEmail">Email address</label>
+        <input id="loginEmail" name="email" type="email" autocomplete="email" required>
+
+        <label for="loginPassword">Password</label>
+        <input id="loginPassword" name="password" type="password" autocomplete="current-password" required>
+
+        <button class="btn btn-primary login-modal__submit" type="submit">Log in</button>
+      </form>
+      <div class="login-modal__footer">
+        <a href="/login">Create an account</a>
+        <a href="/login">Forgot password?</a>
+      </div>
+    </div>
+  </div>
+
 
   <script src="javascript/main.js"></script>
 </body>

@@ -352,6 +352,118 @@ header {
   text-decoration: underline;
 }
 
+.login-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 4000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.login-modal.is-open {
+  display: flex;
+}
+
+.login-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.58);
+}
+
+.login-modal__dialog {
+  position: relative;
+  width: min(430px, 100%);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--text);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.24);
+  padding: 32px;
+}
+
+.login-modal__header {
+  margin-bottom: 24px;
+}
+
+.login-modal__eyebrow {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.login-modal__header h2 {
+  margin: 0 0 10px;
+  font-size: 30px;
+  line-height: 1.15;
+  font-weight: 600;
+}
+
+.login-modal__header p:not(.login-modal__eyebrow) {
+  margin: 0;
+  color: var(--muted);
+}
+
+.login-modal__form {
+  display: grid;
+  gap: 10px;
+}
+
+.login-modal__form label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.login-modal__form input {
+  width: 100%;
+  height: 44px;
+  margin-bottom: 8px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+}
+
+.login-modal__form input:focus {
+  outline: none;
+  border-color: var(--text);
+  box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.1);
+}
+
+.login-modal__submit {
+  width: 100%;
+  margin-top: 4px;
+  border: 0;
+  cursor: pointer;
+}
+
+.login-modal__footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 18px;
+  font-size: 14px;
+}
+
+.login-modal__footer a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.login-modal__footer a:hover {
+  text-decoration: underline;
+}
+
+body.login-modal-open {
+  overflow: hidden;
+}
+
 main {
   max-width: var(--max);
   margin: 60px auto;
@@ -716,6 +828,27 @@ footer {
   .btn {
     width: 100%;
     max-width: 320px;
+  }
+
+  .login-modal {
+    padding: 16px;
+  }
+
+  .login-modal__dialog {
+    padding: 24px;
+  }
+
+  .login-modal__header h2 {
+    font-size: 26px;
+  }
+
+  .login-modal__submit {
+    max-width: none;
+  }
+
+  .login-modal__footer {
+    flex-direction: column;
+    gap: 10px;
   }
 }
 

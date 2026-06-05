@@ -40,6 +40,28 @@
   });
 })();
 
+/* ===== LOGIN MODAL ===== */
+(function () {
+  var modal = document.getElementById("loginModal");
+  if (!modal) return;
+
+  var firstInput = document.getElementById("loginEmail");
+
+  function openLoginModal() {
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("login-modal-open");
+
+    if (firstInput) {
+      firstInput.focus();
+    }
+  }
+
+  window.addEventListener("load", function () {
+    window.setTimeout(openLoginModal, 1000);
+  });
+})();
+
 /* ===== MEAL PLAN CLEAR ===== */
 (function () {
   var btn = document.getElementById("clearPlanBtn");
@@ -449,5 +471,4 @@
       });
   });
 })();
-
 
