@@ -436,6 +436,24 @@ header {
   box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.1);
 }
 
+.login-modal__remember {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.login-modal__remember input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: #000000;
+  cursor: pointer;
+}
+
 .login-modal__submit {
   width: 100%;
   margin-top: 4px;
